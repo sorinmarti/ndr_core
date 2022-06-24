@@ -1,0 +1,93 @@
+{% load static %}
+{% load ndr_core_ui_elements %}
+{% load ndr_core_ui_configtags %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        {% include 'ndr_core_ui/elements/header_tags.html' %}
+        <link href="{% static 'ndr_core_ui/css/ndr_core_classic.css' %}" rel="stylesheet">
+        {% include 'ndr_core_ui/elements/javascript.html' %}
+    </head>
+
+    <body>
+        <div class="container">
+            <header class="blog-header py-3">
+                <div class="row flex-nowrap justify-content-between align-items-center">
+                    <div class="col-3 pt-1">
+                        <a class="text-muted" href="#">
+                            {% block logo %}
+                                <img src="{% static 'ndr_core_ui/images/logo.png' %}" height="50px">
+                            {% endblock %}
+                        </a>
+                    </div>
+                    <div class="col-6 text-center">
+                        {% config_value 'main_view' as logo_view_name %}
+                        <a class="blog-header-logo text-dark" href="{% url logo_view_name %}">{% config_value 'website_title' %}</a>
+                    </div>
+                    <div class="col-3 d-flex justify-content-end align-items-center">
+                        {% config_value 'search_view' as search_view_name %}
+                        <a class="text-muted" href="{% url search_view_name %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                 stroke-linejoin="round" class="mx-3">
+                                <circle cx="10.5" cy="10.5" r="7.5"></circle>
+                                <line x1="21" y1="21" x2="15.8" y2="15.8"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="nav-scroller py-1 mb-2">
+                {% print_navigation %}
+            </div>
+
+            {% block header %}
+            {% endblock header %}
+
+        </div>
+
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-8 blog-main">
+                    <h3 class="pb-3 mb-4 font-italic border-bottom">
+                        {% block page_title %}
+                            {% page_title request.resolver_match.url_name %}
+                        {% endblock %}
+                    </h3>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{ message.tags }} alert-dismissible alert-server" role="alert" >
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                {% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% block content %}
+                    {% endblock content %}
+                </div><!-- /.blog-main -->
+
+                <aside class="col-md-4 blog-sidebar">
+                    {% block sidebar %}
+                    {% endblock sidebar %}
+                </aside><!-- /.blog-sidebar -->
+            </div><!-- /.row -->
+        </main><!-- /.container -->
+
+        <footer class="blog-footer">
+            {% block footer %}
+            {% endblock %}
+            <p class="text-muted"><br/>{% config_value 'footer_text' %}</p>
+        </footer>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+
+        {% block extrascripts %}
+        {% endblock %}
+    </body>
+</html>

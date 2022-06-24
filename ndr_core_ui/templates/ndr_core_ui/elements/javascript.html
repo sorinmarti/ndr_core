@@ -1,0 +1,25 @@
+{% load static %}
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+ <script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/gh/maxshuty/accessible-web-components@latest/dist/simpleRange.min.js">
+</script>
+
+<script>
+    $('.test, .nav-link, .navbar-brand, .new-button').click(function() {
+        var sectionTo = $(this).attr('href');
+        $('html, body').animate({
+          scrollTop: $(sectionTo).offset().top
+        }, 500);
+    });
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>

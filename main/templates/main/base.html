@@ -1,0 +1,34 @@
+<!-- Extend an existing base page to set your basic UI style -->
+{% extends 'ndr_core_ui/base/base_classic.html' %}
+{#% extends 'ndr_core_ui/base/base_plain.html' %#}
+
+{% load static %}
+{% load ndr_core_ui_configtags %}
+
+<!-- Overwrite the ndr core logo with your own -->
+{#% block logo %#}
+{#% endblock %#}
+
+<!-- Set the header area of your page-->
+{#% block header %#}
+{#% endblock header %#}
+
+<!-- Overwrite the page title -->
+{#% block page_title %#}
+{#% endblock %#}
+
+{% block content %}
+    Implement this block for the pages content
+{% endblock %}
+
+<!-- Set the sidebar -->
+{#% block sidebar %#}
+{#% endblock sidebar %#}
+
+<!-- Overwrite the footer text -->
+{#% block footer %#}
+{#% endblock %#}
+
+<!-- Add additional javascript -->
+{#% block extrascripts %#}
+{#% endblock %#}
