@@ -64,7 +64,8 @@ class AdvancedSearchView(_NdrCoreSearchView):
                             hit_list = result["hits"]
 
         else:
-            print(form.errors)
+            pass
+            # print(form.errors)
         return render(request, self.template_name, {'form': form, 'result': hit_list})
 
 
