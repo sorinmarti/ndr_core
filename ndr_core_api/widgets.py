@@ -79,13 +79,12 @@ class CustomSelect(forms.Select):
                                   "  });\n"\
                                   "});\n"
 
-        return mark_safe(html + "<script>" +inline_code + preselect_code + "</script>")
+        return mark_safe(html + "<script>" + inline_code + preselect_code + "</script>")
 
 
 class CustomRange(forms.TextInput):
 
     def render(self, name, value, attrs=None, renderer=None):
-        print("RANGE NAME: ", name)
         config = get_search_field_config(name)
 
         lower_number = self.attrs["lower_number"]

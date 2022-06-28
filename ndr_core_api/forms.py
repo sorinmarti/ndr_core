@@ -1,5 +1,8 @@
 import csv
 import os
+
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 from django import forms
 from django.conf import settings
 from ndr_core_api.ndr_core_api_helpers import get_api_config, get_search_field_config
@@ -14,10 +17,16 @@ class _NdrCoreSearchForm(forms.Form):
 
 
 class SimpleSearchForm(_NdrCoreSearchForm):
-    search_term = forms.CharField(label='Search Term', max_length=100)
+    search_term = forms.CharField(label='Search Term', max_length=100, required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+    @property
+    def helper(self):
+        helper = FormHelper()
+        helper.add_input(Submit('search', 'Search'))
+        return helper
 
 
 class AdvancedSearchForm(_NdrCoreSearchForm):
@@ -94,6 +103,13 @@ class AdvancedSearchForm(_NdrCoreSearchForm):
 
                 if new_field is not None:
                     self.fields[field] = new_field
+
+    @property
+    def helper(self):
+        helper = FormHelper()
+        helper.form_method = "GET"
+        helper.add_input(Submit('search', 'Search'))
+        return helper
 
 
 def get_choices_from_tsv(dict_config):

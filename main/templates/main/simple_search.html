@@ -1,8 +1,8 @@
 {% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<form>
-    {{ form.as_p }}
-    <input type="submit" name="search" value="Search" />
-</form>
+    <form>
+        {% crispy form %}
+    </form>
 {% endblock %}

@@ -1,11 +1,12 @@
 import json
 
+from django.contrib import messages
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from ndr_core_api.api import create_advanced_search_string
+from ndr_core_api.api import create_advanced_search_string, get_result
 from ndr_core_api.ndr_core_api_helpers import get_api_config, get_search_field_config
 from ndr_core_api.forms import SimpleSearchForm, AdvancedSearchForm, get_choices_from_tsv
 
@@ -29,9 +30,8 @@ class SimpleSearchView(_NdrCoreSearchView):
     result_line_template = 'ndr_core_api/simple_search_form_template.html'
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form_class(request.GET)
         if form.is_valid():
-
             print("GET RESULT")
         return render(request, self.template_name, {'form': form})
 
@@ -43,16 +43,29 @@ class SimpleSearchView(_NdrCoreSearchView):
 class AdvancedSearchView(_NdrCoreSearchView):
     form_class = AdvancedSearchForm
     template_name = 'ndr_core_api/advanced_search_form_template.html'
+    endpoint = "query"
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(request.GET)
+        hit_list = None
         if form.is_valid():
-            print("GET RESULT")
-            create_advanced_search_string(request.GET)
+            if request.GET.get("search", None) is not None:
+                query = create_advanced_search_string(self.endpoint, request.GET)
+                print(query)
+                result = get_result(query)
+                if result is None:
+                    messages.error(request, "The query could not be sent: unknown error")
+                else:
+                    if "error" in result:
+                        messages.error(request, result["error"])
+                    else:
+                        # Assuming the result is valid
+                        if "hits" in result:
+                            hit_list = result["hits"]
+
         else:
-            print("FORM INVALID")
             print(form.errors)
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form, 'result': hit_list})
 
 
 @csrf_exempt

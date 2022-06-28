@@ -1,8 +1,20 @@
 {% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<form>
-    {{ form.as_p }}
-    <input type="submit" name="search" value="Search" />
-</form>
+    <form>
+        {% crispy form %}
+    </form>
+
+    {% if result %}
+        {% for result_line in result %}
+            <ul>
+                {% for key, value in result_line.items %}
+                    <li>{{ key }} : {{ value }}</li>
+                {% endfor %}
+            </ul>
+            <hr/>
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}

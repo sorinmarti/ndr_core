@@ -1,5 +1,13 @@
+{% load crispy_forms_tags %}
+
 <form>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" name="search" value="Search" />
+    {% crispy form %}
 </form>
+
+{% if result %}
+    {% for result_line in result %}
+        {% for key, value in result_line.items %}
+            {{ key }} : {{ value }}
+        {% endfor %}
+    {% endfor %}
+{% endif %}
