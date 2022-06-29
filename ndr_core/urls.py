@@ -18,7 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('focal/', include('main.urls')),
-    path('/', include('ndr_core_ui.urls')),
-    path('/', include('ndr_core_api.urls')),
+    path('ndr_core_ui/', include('ndr_core_ui.urls')),
+    path('ndr_core_api/', include('ndr_core_api.urls')),
     path('admin/', admin.site.urls),
 ]
