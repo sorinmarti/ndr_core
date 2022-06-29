@@ -62,11 +62,19 @@ class AdvancedSearchView(_NdrCoreSearchView):
                         # Assuming the result is valid
                         if "hits" in result:
                             hit_list = result["hits"]
+                            self.transform_results(hit_list)
 
         else:
             pass
             # print(form.errors)
         return render(request, self.template_name, {'form': form, 'result': hit_list})
+
+    def transform_results(self, hit_list):
+        for hit in hit_list:
+            self.transform_result(hit)
+
+    def transform_result(self, hit):
+        pass
 
 
 @csrf_exempt
