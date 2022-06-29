@@ -1,0 +1,17 @@
+{% load static %}
+
+ <div class="card">
+        <div class="row no-gutters">
+            <div class="col-auto">
+                <img src="{% static image_name %}" class="img-fluid" style="height: 200px;" alt="">
+            </div>
+            <div class="col">
+                <div class="card-block px-2">
+                    <h5 class="card-title">{{ title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ role }}</h6>
+                    <p class="card-text">{{ text }}</p>
+                    <a href="{{ url }}" class="btn btn-primary btn-sm">More</a>
+                </div>
+            </div>
+        </div>
+  </div>

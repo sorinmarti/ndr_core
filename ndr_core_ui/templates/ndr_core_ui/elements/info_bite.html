@@ -1,0 +1,15 @@
+{% load static %}
+<div class="p-3 m-3 bg-light rounded">
+    <h4 class="font-italic">{{ title }}</h4>
+    <p class="mb-0">
+        {{ text|safe }}
+    </p>
+    {% if image %}
+        <img src="{% static image %}" class="img-fluid" />
+    {% endif %}
+    {% if source %}
+        <p class="text-muted">
+            {{ source }}
+        </p>
+    {% endif %}
+</div>

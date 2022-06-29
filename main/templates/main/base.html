@@ -3,7 +3,8 @@
 {#% extends 'ndr_core_ui/base/base_plain.html' %#}
 
 {% load static %}
-{% load ndr_core_ui_configtags %}
+{% load ndr_core_ui_elements %}
+
 
 <!-- Overwrite the ndr core logo with your own -->
 {#% block logo %#}
@@ -22,8 +23,9 @@
 {% endblock %}
 
 <!-- Set the sidebar -->
-{#% block sidebar %#}
-{#% endblock sidebar %#}
+{% block sidebar %}
+    {% show_info_bite info_bite %}
+{% endblock sidebar %}
 
 <!-- Overwrite the footer text -->
 {#% block footer %#}

@@ -8,6 +8,7 @@ from django.templatetags.static import static
 
 from django.conf import settings
 from ndr_core_ui.models import NdrCorePage
+from ndr_core_ui.ndr_core_ui_helpers import get_ui_config
 
 register = template.Library()
 
@@ -34,15 +35,15 @@ def show_info_card(info_box_json):
             'category_title': "database",
             'card_title': info_box_json['title'],
             'continue_url': info_box_json['view'],
-            'img_url': f'main/images/info_tiles/{info_box_json["image"]}'}
+            'img_url': f'{get_ui_config()["app_name"]}/images/{info_box_json["image"]}'}
 
 
-@register.inclusion_tag('ndr_core_ui/elements/person_card2.html')
+@register.inclusion_tag('ndr_core_ui/elements/person_card.html')
 def show_person_tile(title, role, text, image_name, url):
     return {'title': title,
             'role': role,
             'text': text,
-            'image_name': f'ndr_core_ui/images/project_members/{image_name}',
+            'image_name': f'{get_ui_config()["app_name"]}/images/{image_name}',
             'url': url}
 
 
@@ -51,7 +52,7 @@ def show_info_bite(info_bite):
     return info_bite
 
 
-@register.inclusion_tag('ndr_core_ui/elements/result_line.html')
+@register.inclusion_tag(f'{get_ui_config()["app_name"]}/result_line.html')
 def show_result_line(result_line):
     return result_line
 
@@ -78,7 +79,8 @@ class BannerNode(template.Node):
         self.nodelist = nodelist
 
     def render(self, context):
-        img_list = os.listdir(os.path.join(settings.STATIC_ROOT, 'ndr_core_ui/images/headers/'))
+        app_name = get_ui_config()["app_name"]
+        img_list = os.listdir(os.path.join(settings.STATIC_ROOT, f'{app_name}/images/banners/'))
         random_img = choice(img_list)
         banner_title = self.banner_title.resolve(context) if self.banner_title else 'Set a Title'
         print(banner_title)
@@ -86,6 +88,6 @@ class BannerNode(template.Node):
                                     {
                                         'banner_title': banner_title,
                                         'banner_content': self.nodelist.render(context),
-                                        'image_name': static(f'main/images/headers/{random_img}')
+                                        'image_name': static(f'{app_name}/images/banners/{random_img}')
                                     })
         return rendered

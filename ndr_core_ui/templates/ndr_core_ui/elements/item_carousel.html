@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="col-md-4 mb-3">
+    <div class="card">
+        <img src="{% static img_url %}" class="img-fluid">
+        <div class="card-body">
+            <h4 class="card-title">{{ card_title }}</h4>
+            <p class="card-text">{{ card_lead }}</p>
+            <a href="{% url continue_url %}" class="stretched-link">{{ continue_link_text }}</a>
+        </div>
+    </div>
+</div>
+

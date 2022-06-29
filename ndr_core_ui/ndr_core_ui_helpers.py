@@ -1,11 +1,13 @@
 from django.conf import settings
 
 
-def get_api_config():
+def get_ui_config():
     try:
         saved_api_config = getattr(settings, "NDR_CORE_UI_CONFIG")
     except AttributeError:
         saved_api_config = {}
+
+    set_default_config_value(saved_api_config, "app_name", "main")
 
     set_default_config_value(saved_api_config, "header_title", "NDR Core Database")
     set_default_config_value(saved_api_config, "header_author", "NDR Core")

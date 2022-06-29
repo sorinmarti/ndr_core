@@ -1,5 +1,12 @@
 {% extends 'main/base.html' %}
+{% load ndr_core_ui_elements %}
 
 <!-- Implement this block to show your page content -->
-{#% block content %#}
-{#% endblock %#}
+{% block content %}
+    <p>
+        {% show_person_tile 'Prof. Dr. Jane Doe' 'Principal Investigator' 'The work of Prof. Doe concentrates on something very important indeed.' 'project_members/janedoe.jpg' 'https://example.com' %}
+    </p>
+    <p>
+        {% show_person_tile 'Prof. Dr. Joe Sixpack' 'Principal Investigator' 'The work of Prof. Sixpack is another example of something that is written right here.' 'project_members/johndoe.jpg' 'https://example.com' %}
+    </p>
+{% endblock %}

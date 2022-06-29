@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
 {% load crispy_forms_tags %}
+{% load ndr_core_ui_elements %}
 
 {% block content %}
     <form>
@@ -8,12 +9,7 @@
 
     {% if result %}
         {% for result_line in result %}
-            <ul>
-                {% for key, value in result_line.items %}
-                    <li>{{ key }} : {{ value }}</li>
-                {% endfor %}
-            </ul>
-            <hr/>
+            {% show_result_line result_line %}
         {% endfor %}
     {% endif %}
 

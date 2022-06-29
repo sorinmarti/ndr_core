@@ -1,5 +1,12 @@
 {% extends 'main/base.html' %}
-
+{% load ndr_core_ui_elements %}
 <!-- Implement this block to show your page content -->
-{#% block content %#}
-{#% endblock %#}
+{% block content %}
+    {% banner 'Welcome To The NDR CORE example repo' %}
+        <p class="lead my-3">
+            Lorem Ipsum
+        </p>
+    {% endbanner %}
+
+    {% include 'ndr_core_ui/elements/carousel.html' %}
+{% endblock %}

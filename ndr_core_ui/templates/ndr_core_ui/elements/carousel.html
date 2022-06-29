@@ -1,0 +1,34 @@
+{% load ndr_core_ui_elements %}
+
+<section class="pt-5 pb-5">
+    <div class="container bg-light p-3 rounded">
+        <div class="row">
+            <div class="col-6">
+                <h5 class="mb-3">Explore our Website </h5>
+            </div>
+            <div class="col-6 text-right">
+                <a class="btn btn-primary btn-sm mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary btn-sm mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for box_row in carousel_info %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <div class="row">
+                                    {% for box in box_row %}
+                                        {% show_info_card box %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

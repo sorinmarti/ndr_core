@@ -1,6 +1,7 @@
 import json
-
+import os
 import requests
+from django.conf import settings
 
 from ndr_core_api.ndr_core_api_helpers import get_api_config
 
@@ -22,16 +23,24 @@ def create_advanced_search_string(endpoint, get_params):
         else:
             api_param = field
 
+        param_str = ""
         if field_config["type"] == "dictionary" and field_config["widget"] == "multi_search":
-            param_str = f"&{api_param}="+",".join(get_params.getlist(field+"[]", []))
+            value_list = get_params.getlist(field+"[]", [])
+            if len(value_list) > 0:
+                param_str = f"&{api_param}="+",".join(value_list)
         else:
-            param_str = f"&{api_param}="+get_params.get(field, "")
+            value = get_params.get(field, "")
+            if value != "":
+                param_str = f"&{api_param}="+value
         api_request_str += param_str
 
     return api_request_str
 
 
 def get_result(query):
+    if get_api_config()["use_dummy_result"]:
+        return dummy_get_result_list()
+
     try:
         # Timeouts: 2s until connection, 5s until result
         result = requests.get(query, timeout=(2, 5))
@@ -48,3 +57,26 @@ def get_result(query):
             return {"error": "Result could not be loaded"}
     else:
         return {"error": f"The server returned status code: {result.status_code}"}
+
+
+def dummy_get_result_list():
+    api_config = get_api_config()
+    base_dummy_result = {
+        "total": 181,
+        "page": 2,
+        "size": 10,
+        "links": {
+            "prev": None,
+            "next": None,
+            "self": ""
+        },
+        "hits": []
+    }
+    if api_config["dummy_result_file"] is not None:
+        with open(os.path.join(settings.STATIC_ROOT, api_config["dummy_result_file"])) as f:
+            dummy_search_line = json.load(f)
+            for i in range(int(api_config["page_size"])):
+                base_dummy_result["hits"].append(dummy_search_line)
+            return base_dummy_result
+    else:
+        return base_dummy_result

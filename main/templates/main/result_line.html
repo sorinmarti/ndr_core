@@ -1,0 +1,174 @@
+<div class="card">
+    <div class="bg-search" id="heading{{ id }}">
+        <div class="row">
+            <div class="col-10 pl-4 pt-0 pb-0">
+                <img src="{{ fragment }}" class="w-100" />
+                <p class="text-monospace">{{ transcription }}</p>
+            </div>
+            <div class="col-2">
+                <div class="row">
+                    <div class="col-5 small p-0 m-0 text-right"><strong>Year:</strong></div>
+                    <div class="col-7 small p-0 m-0">{{ year }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 small p-0 m-0 text-right"><strong>Page:</strong></div>
+                    <div class="col-7 small p-0 m-0">{{ page }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 small p-0 m-0 text-right"><strong>Line:</strong></div>
+                    <div class="col-7 small p-0 m-0">{{ line }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-12 small text-right pt-3">
+                        <a class="btn-primary btn-sm"
+                           role="button"
+                           href="#"
+                           data-toggle="collapse"
+                           data-target="#collapse{{ id }}"
+                           aria-expanded="false" aria-controls="collapse{{ id }}">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="collapse{{ id }}" class="collapse" aria-labelledby="heading{{ id }}" data-parent="#accordionResultlist">
+        <div class="card-body">
+            <h5>Entry Details</h5>
+            <table class="table table-sm w-100 small">
+                <tr>
+                    <th colspan="2">Name</th>
+                    <th>{{ name.transcription }}</th>
+                </tr>
+                <tr>
+                    <td style="min-width: 20px; width: 20px;"></td>
+                    <td>Family Name</td>
+                    <td>{{ name.familyname }}
+                        &nbsp;&nbsp;<a href="{% url 'main:advanced_search' %}?surname={{ name.familyname }}" data-toggle="tooltip" title="" data-original-title="Search for this name"><i class="fas fa-search"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="min-width: 20px; width: 20px;"></td>
+                    <td>Given Name</td>
+                    <td>{{ name.givennames }}</td>
+                </tr>
+                {% if name.title %}
+                    <tr>
+                        <td style="min-width: 20px; width: 20px;"></td>
+                        <td>Title</td>
+                        <td>{{ name.title }}</td>
+                    </tr>
+                {% endif %}
+                {% if name.postnominals %}
+                    <tr>
+                        <td style="min-width: 20px; width: 20px;"></td>
+                        <td>Postnominals</td>
+                        <td>{{ name.postnominals }}</td>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <td colspan="3" style="border-bottom: rgba(108,117,125,.5) 1px solid;"></td>
+                </tr>
+                {% if occupations %}
+                <tr>
+                    <th colspan="2">Profession</th>
+                    <td>{{ occupations.0.transcription }}
+                        &nbsp;&nbsp;<a href="{% url 'main:search_advanced' %}?profession={{ occupations.0.transcription }}" data-toggle="tooltip" title="" data-original-title="Search for this profession"><i class="fas fa-search"></i></a>
+                    </td>
+                </tr>
+                    {% for occ in occupations %}
+                        {% if not forloop.first %}
+                            <tr>
+                                <td colspan="2"></td>
+                                <td>{{ occ.transcription }}
+                                    &nbsp;&nbsp;<a href="{% url 'main:search_advanced' %}?profession={{ occ.transcription }}" data-toggle="tooltip" title="" data-original-title="Search for this profession"><i class="fas fa-search"></i></a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                    <td colspan="3">
+                         <div id="map"></div>
+                    </td>
+                    </tr>
+                <tr>
+                    <td colspan="3" style="border-bottom: rgba(108,117,125,.5) 1px solid;"></td>
+                </tr>
+                {% endif %}
+                {% if organisations %}
+                <tr>
+                    <th colspan="2">Institution</th>
+                    <td>{{ organisations.0.transcription }}
+                        &nbsp;&nbsp;<a href="{% url 'main:search_advanced' %}?organisation={{ organisations.0.transcription }}" data-toggle="tooltip" title="" data-original-title="Search for this organisation"><i class="fas fa-search"></i></a>
+                    </td>
+                </tr>
+                    {% for org in organisations %}
+                        {% if not forloop.first %}
+                            <tr>
+                                <td colspan="2"></td>
+                                <td>{{ org.transcription }}
+                                    &nbsp;&nbsp;<a href="{% url 'main:search_advanced' %}?organisation={{ org.transcription }}" data-toggle="tooltip" title="" data-original-title="Search for this organisation"><i class="fas fa-search"></i></a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                <tr>
+                    <td colspan="3" style="border-bottom: rgba(108,117,125,.5) 1px solid;"></td>
+                </tr>
+                {% endif %}
+                {% if locations %}
+                <tr>
+                    <th colspan="2">Location</th>
+                    <td>{{ locations.0.transcription }}
+                        &nbsp;&nbsp;<a href="{% url 'main:search_advanced' %}?location={{ locations.0.transcription }}" data-toggle="tooltip" title="" data-original-title="Search for this location"><i class="fas fa-search"></i></a>
+                    </td>
+                </tr>
+                    {% for loc in locations %}
+                        {% if not forloop.first %}
+                            <tr>
+                                <td colspan="2"></td>
+                                <td>{{ loc.transcription }}
+                                    &nbsp;&nbsp;<a href="{% url 'main:search_advanced' %}?location={{ loc.transcription }}" data-toggle="tooltip" title="" data-original-title="Search for this location"><i class="fas fa-search"></i></a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    <tr>
+                        <td colspan="3" style="border-bottom: rgba(108,117,125,.5) 1px solid;"></td>
+                    </tr>
+                {% endif %}
+            </table>
+            <hr/>
+
+            <h5>Use this data</h5>
+            <table class="table table-sm w-100 small">
+                <tr>
+                    <th scope="row">Download</th>
+                    <td>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href="{% url 'main:index' %}" target="_blank"><i class="fas fa-file"></i>&nbsp;<small>Download Data</small></a>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href="{{ fragment }}" target="_blank"><i class="fas fa-file-image"></i>&nbsp;<small>Download Image Fragment</small></a>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Context</th>
+                    <td>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href="{% url 'main:index' %}"><i class="fas fa-eye"></i>&nbsp;<small>Open Page in Mirador</small></a>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href="{{ canvas }}" target="_blank"><i class="fas fa-file-image"></i>&nbsp;<small>Download Full Page Image</small></a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Further Information</th>
+                    <td>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href="http://schemata.hasdai.org/historic-persons/historic-person-entry-v1.0.1.json" target="_blank"><i class="fas fa-file"></i>&nbsp;<small>JSON Schema</small></a>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href="http://schemata.hasdai.org/historic-persons/historic-person-entry-v1.0.0.json" target="_blank"><i class="fas fa-database"></i>&nbsp;<small>Dataset</small></a>
+                        <a class="btn btn-outline-secondary btn-sm" role="button" href="javascript:copy_citation('{{ citation }}');"><i class="fas fa-database"></i>&nbsp;<small>Copy Citation</small></a>
+                    </td>
+                </tr>
+            </table>
+
+            <p class="text-muted small"><i>{{ parsing_info }}</i></p>
+            <hr class="bg-danger"/>
+        </div>
+    </div>
+</div>

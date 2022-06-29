@@ -73,6 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'ndr_core_ui.context_processors.info_bite',
+                'ndr_core_ui.context_processors.carousel_info',
             ],
         },
     },
@@ -145,6 +147,8 @@ MESSAGE_TAGS = {
  }
 
 NDR_CORE_API_CONFIG = {
+    "use_dummy_result": True,
+    "dummy_result_file": "main/dummy_result.json",
     "api_host": "ghiodata.int",
     "api_protocol": "http",
     "api_port": 80,

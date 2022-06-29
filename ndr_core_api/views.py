@@ -76,7 +76,6 @@ def list_autocomplete2(request, list_name):
         result_list = []
         search_term = request.GET.get("term", "")
         for item in search_list:
-            print(item)
             if search_term.lower() in item[1].lower():
                 result_list.append(item)
         return HttpResponse(json.dumps(result_list), content_type='application/json')

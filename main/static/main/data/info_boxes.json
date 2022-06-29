@@ -1,0 +1,38 @@
+{
+  "box_rows": [
+    [
+      {
+      "title": "Learn About The Source",
+      "view": "main:index",
+      "image": "source.png"
+     },
+      {
+      "title": "Women in the Directories",
+      "view": "main:index",
+      "image": "women.png"
+     },
+      {
+      "title": "About The Project",
+      "view": "main:index",
+      "image": "icon_info_tiles.png"
+     }
+    ],
+    [
+      {
+      "title": "Learn About The Publisher",
+      "view": "main:index",
+      "image": "publisher_1922_1855.png"
+     },
+      {
+      "title": "Data Refining Methods",
+      "view": "main:index",
+      "image": "data_refining_2_1885_1114.png"
+     },
+      {
+      "title": "Case Study: CF",
+      "view": "main:index",
+      "image": "logo_info_tiles.png"
+     }
+    ]
+  ]
+}

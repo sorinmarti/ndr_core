@@ -7,6 +7,10 @@ def get_api_config():
     except AttributeError:
         saved_api_config = {}
 
+    set_default_config_value(saved_api_config, "app_name", "main")
+
+    set_default_config_value(saved_api_config, "use_dummy_result", False)
+    set_default_config_value(saved_api_config, "dummy_result_file", None)
     set_default_config_value(saved_api_config, "api_host", "localhost")
     set_default_config_value(saved_api_config, "api_protocol", "localhost")
     set_default_config_value(saved_api_config, "api_port", "localhost")
