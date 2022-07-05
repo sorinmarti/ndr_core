@@ -1,0 +1,34 @@
+{% load crispy_forms_tags %}
+
+<form>
+    {% crispy form %}
+</form>
+
+{% if result %}
+    {% for result_line in result %}
+        {% for key, value in result_line.items %}
+            {{ key }} : {{ value }}
+        {% endfor %}
+    {% endfor %}
+
+    <ul class="pagination justify-content-center">
+        {% if meta.page == 1 %}
+            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+        {% endif %}
+        {% for link in pagelinks %}
+            {% if pagelink.page == result_meta.page|slugify %}
+                <li class="page-item active">
+                    <span class="page-link">
+                        {{ pagelink.page }}
+                        <span class="sr-only">(current)</span>
+                    </span>
+                </li>
+            {% elif pagelink.page == '...'%}
+                <li class="page-item disabled"><span class="page-link">...</span></li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ pagelink.url }}">{{ pagelink.page }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}

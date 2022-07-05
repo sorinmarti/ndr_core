@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 from ndr_core_api.api import create_advanced_search_string, get_result
 from ndr_core_api.ndr_core_api_helpers import get_api_config, get_search_field_config
 from ndr_core_api.forms import SimpleSearchForm, AdvancedSearchForm, get_choices_from_tsv
+from ndr_core_api.pagination import get_page_list
 
 
 class _NdrCoreSearchView(View):
@@ -48,6 +49,7 @@ class AdvancedSearchView(_NdrCoreSearchView):
     def get(self, request, *args, **kwargs):
         form = self.form_class(request.GET)
         hit_list = None
+        search_metadata = None
         if form.is_valid():
             if request.GET.get("search", None) is not None:
                 query = create_advanced_search_string(self.endpoint, request.GET)
@@ -64,10 +66,20 @@ class AdvancedSearchView(_NdrCoreSearchView):
                             hit_list = result["hits"]
                             self.transform_results(hit_list)
 
+                            search_metadata = {"total": result["total"],
+                                               "page": result["page"],
+                                               "size": result["size"]}
+                            search_metadata["num_pages"] = int(search_metadata["total"] / search_metadata["size"])
+                            if search_metadata["total"] % search_metadata["size"] > 0:
+                                search_metadata["num_pages"] += 1
+                            search_metadata["pagelinks"] = get_page_list(request,
+                                                                         int(result["page"]),
+                                                                         int(search_metadata["num_pages"]))
+
         else:
             pass
             # print(form.errors)
-        return render(request, self.template_name, {'form': form, 'result': hit_list})
+        return render(request, self.template_name, {'form': form, 'result': hit_list, 'meta': search_metadata})
 
     def transform_results(self, hit_list):
         for hit in hit_list:
