@@ -61,7 +61,7 @@ class CustomSelect(forms.Select):
             "            }\n"\
             "        }\n"\
             "      },\n"\
-            "    allowClear: true\n"\
+            "    allowClear: false\n"\
             "  });\n"\
             "});\n"\
 

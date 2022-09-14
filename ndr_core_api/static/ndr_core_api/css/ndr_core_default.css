@@ -20,6 +20,16 @@ body p {
   border-radius: 7px;
 }
 
+.select2-selection--multiple:before {
+    content: "";
+    position: absolute;
+    right: 7px;
+    top: 42%;
+    border-top: 5px solid #888;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
 .select2-dropdown {
   background-color: white;
   border-left: 1px solid #ced4da !important;
