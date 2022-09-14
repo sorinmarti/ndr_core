@@ -1,0 +1,45 @@
+{% load static %}
+
+<div class="container">
+<div class="partial-collapse" id="id-{{ source.id }}-collapse-container">
+  <div class="card flex-md-row mb-2 ml-0 box-shadow md-3">
+      <div class="card-body d-flex flex-column align-items-start ml-0 ">
+        <div class="row ml-0">
+            {% for tag in source.tags %}
+                <div class="discover-type ml-0">{{ tag.label }}</div>
+            {% endfor %}
+
+            <div class="discover-date ml-3">{{ source.date }}</div>
+            </div>
+             <h3 class="mb-3 mt-2">
+               <a class="text-dark" href="#">{{ source.title }}</a>
+             </h3>
+               <div class="collapse" id="id-{{ source.id }}-collapse" aria-expanded="false" style="">
+                    <p class="card-text mb-auto"></p>
+                    {{ source.text|linebreaks }}
+                    <p></p>
+                </div>
+             <div class="d-flex">
+               <div class="mb-2">
+                 <nav>
+                   <button type="button" class="btn btn-sm btn-outline-secondary collapsed" data-toggle="collapse" data-target="#id-{{ source.id }}-collapse" aria-role="button" aria-controls="id-{{ source.id }}-collapse" aria-expanded="false" id="id-{{ source.id }}-collapse-button">Continue reading</button>
+                   <a href="https://dpc.ei-basel.hasdai.org/records/{{ source.id }}"><button type="button" class="btn btn-sm btn-outline-secondary">View repository </button></a>
+                 </nav>
+               </div>
+             </div>
+           </div>
+            <a href="https://dpc.ei-basel.hasdai.org/records/{{source.id}}/preview/page-001.jpg" target="_blank">
+                <img class="card-img-right flex-auto d-none d-md-block" src="{% static source.image_url %}" alt="Source preview thumbnail">
+            </a>
+         </div>
+       </div>
+ </div>
+<script>
+    $('#id-{{ source.id }}-collapse-container').on('hidden.bs.collapse', function () {
+        console.log('COLLAPSE')
+        $('#id-{{ source.id }}-collapse-button')[0].textContent = 'Continue reading'
+    })
+    $('#id-{{ source.id }}-collapse-container').on('shown.bs.collapse', function () {
+        $('#id-{{ source.id }}-collapse-button')[0].textContent = 'Summary'
+    })
+</script>

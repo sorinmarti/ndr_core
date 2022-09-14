@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load ndr_core_ui_elements %}
+
+<!-- Implement this block to show your page content -->
+
+{% block content %}
+
+    <!-- Jumbotron -->
+    {% banner_small 'Browse the sub-collections' %}
+    {% end_banner_small %}
+
+
+        {% crispy form %}
+
+        <div class="mb-2">Your search returned {{ meta.total }} results, showing page {{ meta.page }} of {{ meta.num_pages }}.</div>
+
+
+
+    {% for result in results %}
+        {% show_source_card result %}
+    {% endfor %}
+
+    {% include 'ndr_core_api/elements/pagination.html' %}
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{
+	"meta":{
+		"actions":[
+			{
+				"date":"2019-05",
+				"summary":"source document accession",
+				"actor": {
+					"name":"Data Futures GmbH",
+					"identifier":"https://data-futures.org/",
+					"scheme":"url"
+				}
+			},
+			{"date":"2019-06","summary":"OCR and annotation creation","actor":{"name":"Data Futures GmbH","identifier":"https://data-futures.org/","scheme":"url"}},
+			{"summary":"OCR correction","actor":{"scheme":"orcid","identifier":"0000-0002-1871-236X","name":"Christian Futter"},"date":"2019-08"}
+		],
+		"version":"1",
+		"partof":{"title":"Citizenship Lists","id":"https://doi.org/10.5281/zenodo.5666547"},
+		"tags":["internment_lists"],
+		"generated":"2021-11"
+	},
+	"status":"interred person",
+	"date":{"reference":"1945-09"},
+	"organization":{"transcription":"Allied Civilian Personnel of French Nationality"},
+	"location":[
+		{"transcription":"Haiphong, FIC Civil Prison","association":"interred","identifier":"7001070","scheme":"tgn"},
+		{"transcription":"Hanoi / French Indochine","association":"next of kin residence"}
+	],
+	"name":{"givennames":"Jacques","familyname":"Mondoloni"},
+	"id":"92c62d6a-2d25-11ed-86d5-9fff8489b895",
+	"source":{
+		"fragment":"https://dpc.ei-basel.hasdai.org/api/iiif/v2/we63j-nra92:page-149.jpg/5,543,635,131/full/0/default.jpg",
+		"id":"https:/citizenship.freizo.org/folios/12253",
+		"page_image":"https://dpc.ei-basel.hasdai.org/api/iiif/v2/we63j-nra92:page-149.jpg",
+		"manifest":"https://citizenship.freizo.org/iiif/manifest/12253",
+		"selector":{"canvas":"https://citizenship.freizo.org/image/12253/canvas/p149"}
+	},"extra":[{"value":"None","field":"serial"},{"field":"health","value":"NP-A"},{"value":"Yes","field":"nextofkin_relation"}]}

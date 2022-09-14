@@ -1,0 +1,45 @@
+{% load ndr_core_ui_elements %}
+
+<div class="card mb-2 box-shadow">
+  <div class="card-body d-flex flex-column align-items-start">
+      <div class="row">
+          {% if result.source.page_image %}
+              <div class="col-md-8">
+          {% else %}
+              <div class="col-md-12">
+          {% endif %}
+            <div class="d-inline-block mb-2 text-secondary">
+                <small>Result {{ result.result_number }}</small>
+                &nbsp;&nbsp;
+                {% for tag in result.meta.tags %}
+                    <span class="badge border border-secondary small" style="font-weight: normal;">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            <p class="card-text mb-2">
+                Sub collection: {{ result.meta.partof.title }}
+            </p>
+            <h3 class="mb-2 pt-0">
+              <a class="text-dark" href="#">Name: {{ result.full_name }}</a>
+            </h3>
+
+            {% if result.date.ref %}
+                <p class="card-text mb-2">Year: {{ result.date.ref }}</p>
+            {% endif %}
+
+              {% if result.source.fragment %}
+                <img class="card-img-top mb-3 w-80" src="{{ result.source.fragment }}" alt="IIIF fragment">
+              {% endif %}
+        </div>
+        {% if result.source.page_image %}
+            <div class="col-md-4 bg-light">
+                <a href="{{ result.source.page_image }}/full/full/0/default.jpg" target="_blank">
+                    <img class="card-img-top w-100 p-0 m-0" src='{{ result.source.page_image }}/full/!400,600/0/default.jpg'>
+                </a>
+            </div>
+        {% endif %}
+      </div>
+    </div>
+  <div class="card-footer bg-white">
+    <a href="{{ result.meta.partof.id }}" target="_blank" class="btn btn-outline-secondary">view repository</a> <small class="text-muted float-right">({{ result.meta.partof.title }}: {{ result.meta.partof.id }})</small>
+  </div>
+</div>

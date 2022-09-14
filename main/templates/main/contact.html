@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load ndr_core_ui_elements %}
+
+<!-- Implement this block to show your page content -->
+{% block content %}
+    <!-- Jumbotron -->
+    {% banner_small 'Contact Us' %}
+    {% end_banner_small %}
+
+    <h4 class="pb-3 mb-4 border-bottom">Contact</h4>
+    {% include 'ndr_core_api/elements/messages.html' %}
+
+    <p>
+      You can reach out to the <a href="https://europa.unibas.ch/en/contact/">Institute for European Global Studies</a> or fill in the form below.
+    </p>
+    <div class="col-12">
+        {% crispy form %}
+    </div>
+
+
+{% endblock %}

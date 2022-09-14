@@ -1,0 +1,66 @@
+{% extends 'main/base.html' %}
+{% load ndr_core_ui_elements %}
+<!-- Implement this block to show your page content -->
+
+{% block content %}
+    <!-- Jumbotron -->
+    {% include 'main/dpcl_jumbotron.html' %}
+
+    <h3 class="pb-3 mb-4 border-bottom">DPCL Curated Studies Overview</h3>
+
+    {% titled_text 'Comparing Heterogeneous Archival Sources' %}
+        <p>
+            This website accompanies research conducted by Christian Futter between 2018 and 2022 as part of the SNF
+            Divisive Power of Citizenship project of the Institute for European Global History, Basel. DPCL has
+            gathered archival sources internationally relating to European citizens resident in Indochina during
+            World War II, including material recently released by the French Government, and analyzed them using novel
+            digital methods. An introduction to the research questions addressed by Futter is already available
+            (link), and a full dissertation will be published during 2023.
+        </p>
+        <p>
+            DPCL's archival material presented multiple processing challenges before it could be used for research.
+            On one hand digital methods enable empirical research to be conducted at scale, since the tens of thousands
+            of persons documented in the DPCL sources are too large to compare manually with each other or against
+            external resources. On the other hand, computer extraction of irregular type-writer fonts and manuscript,
+            often over-written with officials' comments, defeats conventional computer character recognition techniques.
+            Further, the order in which names, identification numbers, locations etc appear on the page is
+            inconsistent—sometimes within a single source—and the information available varies between archival sources.
+            The novel approach developed and applied successfully by DPCL is to combine tailorable software for
+            recognition of computer text from page imagery together with manual inspection and checking workflows
+            which are able to outsource extraction to a community of contributors on an individual task basis. In
+            addition, application of a historical person instance schema has enabled the organization of information
+            extracted by DCPL into a single data structure which can be used efficiently at larger scale with historic
+            person information produced by other research activities—both within and external to the larger EIB
+            Divisive Power program. This approach has enabled 47 independent DCPL archive sources, having such
+            heterogeneous layouts and presenting a range of extraction issues, to be processed with high accuracy,
+            so that they can be compared automatically with other corpora. The curated studies presented here
+            illustrate some of the variations in source material layout and the different circumstances and purposes
+            for which the individual DCPL archive materials were originally gathered by officials in Indochina.
+        </p>
+    {% end_titled_text %}
+
+    {% titled_text 'Publishing Empirical Data for Global History Research' %}
+        <p>
+            An important outcome of the DPCL project is the publication of data resources, which have been developed from
+            the archival material in this way, for use by the wider scientific community. These resources embody the
+            investment of extracting accurate historic person instance data at scale from the printed sources, and they
+            are linked where possible to digital page imagery showing their original context via online services. A range
+            of other research questions can be supported by these services, which also provide an empirical foundation
+            that can be extended and further enriched in the future by other scholars. Continued accessibility to this
+            data is therefore essential and, accordingly, long-term data preservation techniques have been employed.
+        </p>
+        <p>
+            An InvenioRDM repository with integrated IIIF services provides a standards-based and maintainable platform
+            for digital versions of the archival material (except in a small number of cases in which only pre-processed
+            data was available from the institution hosting the archive). Each archival source is represented as a record
+            in the dpc-eib.basel.hasdai.org repository, which provides persistent identifiers (PIDs) for each page image
+            file. This enables person instance data and Web Annotation Data Model (WADM) annotations to be reliably
+            connected to the archival sources in the long-term, independent of software applications that may be employed
+            for research or presentation. In turn, historic person instance data (serialized as JSON) is attached to each
+            archival record, and also deposited as a linked record in the Zenodo global catch-all repository of the
+            European Commission.
+        </p>
+    {% end_titled_text %}
+
+
+{% endblock %}

@@ -7,6 +7,17 @@ def get_api_config():
     except AttributeError:
         saved_api_config = {}
 
+    set_default_config_value(saved_api_config, "header_title", "NDR Core Database")
+    set_default_config_value(saved_api_config, "header_author", "NDR Core")
+    set_default_config_value(saved_api_config, "header_description", "NDR Core Database Instance")
+
+    set_default_config_value(saved_api_config, "website_title", "NDR Core Database")
+
+    set_default_config_value(saved_api_config, "main_view", "ndr_core_ui:index")
+    set_default_config_value(saved_api_config, "search_view", "ndr_core_ui:search")
+
+    set_default_config_value(saved_api_config, "footer_text", "(c) 2022, NDR Core")
+
     set_default_config_value(saved_api_config, "app_name", "main")
 
     set_default_config_value(saved_api_config, "use_dummy_result", False)

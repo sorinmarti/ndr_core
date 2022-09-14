@@ -35,5 +35,5 @@ def get_page_list(request, current_page, number_of_pages):
     for page in page_list:
         enriched_page_list.append({'page': page, 'url': url + "page=" + page})
 
-    return enriched_page_list
+    return {'pages': enriched_page_list, 'prev': f"{url}page={int(current_page)-1}", 'next': f"{url}page={int(current_page)+1}"}
 

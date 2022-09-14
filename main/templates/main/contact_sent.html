@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load ndr_core_ui_elements %}
+
+<!-- Implement this block to show your page content -->
+{% block content %}
+    <!-- Jumbotron -->
+    {% banner_small 'Contact Us' %}
+    {% end_banner_small %}
+
+    <h4 class="pb-3 mb-4 border-bottom">Message sent</h4>
+    <p>
+      Thank you for your message. We will reply to <i>{{ email }}.</i>
+    </p>
+
+{% endblock %}

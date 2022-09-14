@@ -35,7 +35,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'ndr_core_ui',
     'ndr_core_api',
     'main',
     'django_static_fontawesome',
@@ -73,8 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'ndr_core_ui.context_processors.info_bite',
-                'ndr_core_ui.context_processors.carousel_info',
+                'ndr_core_api.context_processors.info_bite',
+                'ndr_core_api.context_processors.carousel_info',
             ],
         },
     },
@@ -144,92 +143,118 @@ MESSAGE_TAGS = {
         messages.SUCCESS: 'alert-success',
         messages.WARNING: 'alert-warning',
         messages.ERROR: 'alert-danger',
- }
+}
+
+
+EMAIL_HOST = 'mail.flunk.com'
+EMAIL_TIMEOUT = 10
+DEFAULT_FROM_EMAIL = 'no-reply@divisive-power.org'
+
 
 NDR_CORE_API_CONFIG = {
-    "use_dummy_result": True,
-    "dummy_result_file": "main/dummy_result.json",
-    "api_host": "ghiodata.int",
-    "api_protocol": "http",
-    "api_port": 80,
-    "page_size": 10,
-    "search_fields":
-        {
-            "book_title": {
-                "type": "string",
-                "required": False,
-                "api_param": "title"
-            },
-            "year": {
-                "type": "number-range",
-                "number-range": {
-                    "min_number": 1863,
-                    "max_number": 1950
-                }
-            },
-            "language": {
-                "type": "dictionary",
-                "api_param": "lang",
-                "dictionary": {
-                    "type": "tsv",
-                    "file": "main/languages.tsv",
-                    "search_column": 0,
-                    "display_column": 1,
-                    "has_title_row": True
-                },
-                "widget": "default"
-            },
-            "section_type": {
-                "type": "dictionary",
-                "api_param": "stype",
-                "dictionary": {
-                    "type": "tsv",
-                    "file": "main/section_type.tsv",
-                    "search_column": 0,
-                    "display_column": 1,
-                    "has_title_row": True
-                },
-                "widget": "default"
-            },
-            "table_type": {
-                "type": "dictionary",
-                "api_param": "inscat",
-                "dictionary": {
-                    "type": "tsv",
-                    "file": "main/table_type.tsv",
-                    "search_column": 0,
-                    "display_column": 1,
-                    "has_title_row": True
-                },
-                "widget": "multi_search"
-            },
-            "territory": {
-                "type": "dictionary",
-                "api_param": "ter",
-                "dictionary": {
-                    "type": "tsv",
-                    "file": "main/territory.tsv",
-                    "search_column": 0,
-                    "display_column": 1,
-                    "has_title_row": True
-                },
-                "widget": "multi_search"
-            }
-        },
-        "configurations": {
-            "advanced": ["__all__", ]
-        }
-    }
-
-
-NDR_CORE_UI_CONFIG = {
-    "header_title": "Kitler Lectures",
-    "header_author": "Lea Kasper",
-    "header_description": "History",
-    "website_title": "Welcome To The Kitler Lecture Archives",
+    "www-host": "divisive-power.org",
+    "header_title": "DPCL - Divisive Power Of Citizenship",
+    "header_author": "Christian Futter, Peter Cornwell, Madeleine Herren-Oesch, Sorin Marti",
+    "header_description": "This repository is an outcome of the Europa Institute Basel research program of the same "
+                          "name, funded by Swiss National Science Foundation under grant 100011_184860/1.",
+    "website_title": "Welcome To DPC",
+    "contact-from-email": "no-reply@divisive-power.org",
+    "contact-recipients": ['info@data-futures.org', ],
 
     "main_view": "main:index",
     "search_view": "main:search",
 
-    "footer_text": "(c) 2022, Institute For European Global Studies"
-}
+    "footer_text": "(c) 2022, Institute For European Global Studies",
+
+    "use_dummy_result": True,
+    "repositories": {
+        "dpc": {
+            "dummy_result_file": "main/dummy_result_dpc.json",
+            "api_host": "dpcdata.int",
+            "api_protocol": "http",
+            "api_port": 80,
+            "label": "DPCL - Divisive Power of Citizenship and Loyalty"
+        },
+        "asiadir": {
+            "dummy_result_file": "main/dummy_result_asiadir.json",
+            "api_host": "hpedata.int",
+            "api_protocol": "http",
+            "api_port": 80,
+            "label": "Asian Directories and Chronicles"
+        },
+        "haka": {
+            "dummy_result_file": "main/dummy_result_asiadir.json",
+            "api_host": "handelskammerdata.int",
+            "api_protocol": "http",
+            "api_port": 80,
+            "label": "Handelskammer",
+            "query_type": "basic"
+        }
+    },
+
+    "page_size": 10,
+    "search_fields":
+        {
+            "name": {
+                "type": "string",
+                "help_text": "Insert a Last Name.",
+                "api_param": "surname",
+            },
+            "first_name": {
+                "type": "string",
+                "help_text": "Insert First Name Initials or Titles.",
+                "api_param": "namepart"
+            },
+            "tags": {
+                "type": "dictionary",
+                "api_param": "tags",
+                "dictionary": {
+                    "type": "tsv",
+                    "file": "main/tag_list.tsv",
+                    "search_column": 0,
+                    "display_column": 1,
+                    "has_title_row": True
+                },
+                "widget": "multi_search",
+                "help_text": "Note: Most Data Entries for this Category are unknown."
+            },
+            "organization": {
+                "type": "string",
+                "help_text": "Insert an Organisation Name (e.g. Company, Governments, Department, School, etc.).",
+                "api_param": "organisation"
+            },
+            "profession": {
+                "type": "string",
+                "help_text": "Insert a Profession (e.g. Missionary, Merchant, Wharfinger, etc.)."
+            },
+            "location": {
+                "type": "string",
+                "required": False,
+                "api_param": "location",
+                "help_text": "Search for locations. You may select multiple. If left blank, all locations are searched."
+            },
+            "year": {
+                "type": "number",
+                "api_param": "year",
+            }
+        },
+    "form_display": [
+        [
+            {"name": "name", "size": "4"},
+            {"name": "first_name", "size": "3"},
+            {"name": "tags", "size": "5"}
+        ],
+        [
+            {"name": "organization", "size": "6"},
+            {"name": "profession", "size": "6"},
+        ],
+        [
+            {"name": "location", "size": "8"},
+            {"name": "year", "size": "4"},
+        ],
+    ],
+
+        "configurations": {
+            "advanced": ["__all__", ]
+        }
+    }

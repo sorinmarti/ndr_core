@@ -1,18 +1,24 @@
 <!-- Extend an existing base page to set your basic UI style -->
-{% extends 'ndr_core_ui/base/base_classic.html' %}
-{#% extends 'ndr_core_ui/base/base_plain.html' %#}
+{% extends 'ndr_core_api/base/base_default.html' %}
+{#% extends 'ndr_core_api/base/base_plain.html' %#}
 
 {% load static %}
 {% load ndr_core_ui_elements %}
 
+{% block additional_header_tags %}
+    <link href="{% static 'main/css/site.css' %}" rel="stylesheet" type="text/css">
+{% endblock additional_header_tags %}
 
 <!-- Overwrite the ndr core logo with your own -->
-{#% block logo %#}
-{#% endblock %#}
+{% block logo %}
+    <a class="blog-header-logo" href="/">
+        <img src="{% static 'main/images/logo.png' %}" class="pb-3" style="height: 100px;">
+    </a>
+{% endblock %}
 
 <!-- Set the header area of your page-->
-{#% block header %#}
-{#% endblock header %#}
+{% block header %}
+{% endblock header %}
 
 <!-- Overwrite the page title -->
 {#% block page_title %#}
@@ -28,8 +34,9 @@
 {% endblock sidebar %}
 
 <!-- Overwrite the footer text -->
-{#% block footer %#}
-{#% endblock %#}
+{% block footer %}
+    {% include 'main/footer.html' %}
+{% endblock %}
 
 <!-- Add additional javascript -->
 {#% block extrascripts %#}

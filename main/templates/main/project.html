@@ -3,10 +3,79 @@
 
 <!-- Implement this block to show your page content -->
 {% block content %}
-    <p>
-        {% show_person_tile 'Prof. Dr. Jane Doe' 'Principal Investigator' 'The work of Prof. Doe concentrates on something very important indeed.' 'project_members/janedoe.jpg' 'https://example.com' %}
-    </p>
-    <p>
-        {% show_person_tile 'Prof. Dr. Joe Sixpack' 'Principal Investigator' 'The work of Prof. Sixpack is another example of something that is written right here.' 'project_members/johndoe.jpg' 'https://example.com' %}
-    </p>
+    <!-- Jumbotron -->
+    {% banner_small 'About The Project' %}
+    {% end_banner_small %}
+
+    <h3 class="pb-3 mb-4 border-bottom">About The Project</h3>
+
+    {% titled_text 'The Divisive Power of Citizenship' %}
+        <p>
+            Erosion of nationality and the politicization of citizenship have become dominant features of discourse in
+            Western democracies. However, these issues are not new: since the beginning of the 21st century Western
+            states have been loosening historic hurdles to de-naturalization of their citizens, mainly as a consequence
+            of the War on Terror and stricter treatment of migrants. In addition to this re-framing of citizenship – as
+            a privilege that can be lost – supra-national organizations pose orthogonal challenges. For example, the
+            European Union grants its citizens free movement, thereby relaxing the historic connection between
+            citizenship and geographical region and replacing nationality with a new form of multi-layered citizenship.
+        </p>
+
+        <p>
+            This project, <a href="https://europa.unibas.ch/de/forschung/globalgeschichte-europas/the-divisive-power-of-citizenship/">
+            "The Divisive Power of Citizenship"</a>, seeks to relate and connect these recent processes effectively with
+            historical precedents to create an expanded understanding of citizenship which can both reveal new insights
+            about the past as well as the contemporary situation.
+        </p>
+
+        <p>
+            Focusing on East Asia in the early 20th century, we examine conditions applying to European merchants, whose
+            citizenship bestowed distinct jurisdiction and rights compared with their Asian contemporaries – creating
+            multilayered trans-cultural communities. Such competing communities can be analyzed in terms of colonial
+            privilege, racism and nationalism, affording new perspectives on historical communities and also provide a
+            lens through which to view the tumultuous processes at work today. Chronologically this survey spans the
+            period between 1919 and 1945, witnessing the climax and decline of western dominance in East Asia and also
+            the rupture precipitated by the Pacific War.
+        </p>
+    {% end_titled_text %}
+
+    {% titled_text 'Project aims' %}
+        <p>
+            The project studies evolving international relations and colonial expansion from this perspective,
+            acknowledging the complex changes in the operation of citizenship. By focusing on the consequences of
+            interaction between multiple communities we can describe the 20th century in a new way. We have formed an
+            international collaboration to achieve this: the project brings together Prof. Dr. Toshiki Mogami, an expert
+            in international human rights law, and Prof. Peter Cornwell, an expert in data science with Professor Dr.
+            Madeleine Herren's team at the Europa Institute, Basel and Professor Dr. Sacha Zala of the Diplomatic
+            Documents of Switzerland.
+        </p>
+
+        <p>
+            We will create Findable, Accessible, Interoperable and Re-usable (FAIR) data resources under the canopy
+            Pacific War Documentary Chain (PWDC), tracing the lives of thousands of citizens living abroad during this
+            period, and also aggregating for the first time in one place information about those interned during the
+            Pacific War.
+        </p>
+
+        <p>
+            The project will develop a theoretical conceptualization of citizenship and offer new perspectives in
+            historical research, bringing previously unavailable documents into focus and delivering empirical findings
+            to shape future visions of citizenship. Collaboration with CERN's data repository group and with the
+            Research Data Association will enable state-of-the-art standards-based data resources to be created to
+            benefit the wider scholarly community, protecting research investment in the long-term and providing a
+            robust foundation of primary material for future researchers.
+        </p>
+    {% end_titled_text %}
+
+    {% titled_text 'Sub-Projects' %}
+        <p>
+            The Divisive Power of Citizenship comprises multiple sub-projects which are closely intertwined and share a
+            common digital research infrastructure – providing workflows to connect leading scholars in citizenship
+            studies and international human rights law internationally, especially in Japan. This infrastructure
+            promotes dialogue between theory- building, historical empiricism and data science; precipitating
+            face-to-face debate and confronting PhD students with the latest digital methods and their impact on
+            humanitarian law and history. The sub-projects will together build a shared digital resource – the Pacific
+            War Documentary Chain – correcting the existing scarcity of knowledge about citizens living abroad during
+            the early 20th century.
+        </p>
+    {% end_titled_text %}
 {% endblock %}

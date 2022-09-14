@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load ndr_core_ui_elements %}
+
+{% block content %}
+
+    {% banner_small 'Search person instance datasets' %}
+    {% end_banner_small %}
+
+    {% if result %}
+        <h4 class="mt-4">Search Results
+            <div class="btn-group float-right">
+                <a href="{% query_transform request 'search' %}" type="button" class="btn btn-sm btn-outline-secondary ">refine search</a>
+                <a href="{% url 'main:search' %}" type="button" class="btn btn-sm btn-outline-secondary float-right">start a new search</a>
+            </div>
+        </h4>
+        {% include 'ndr_core_api/elements/messages.html' %}
+
+        <div class="mb-2">Your search returned {{ meta.total }} results, showing page {{ meta.page }} of {{ meta.num_pages }}.</div>
+
+        {% for result_line in result %}
+            {% if search_repo == 'dpc' %}
+                {% show_result_line_dpc result_line %}
+            {% elif search_repo == 'asiadir' %}
+                {% show_result_line_asiadir result_line %}
+            {% elif search_repo == 'haka' %}
+                {% show_result_line_haka result_line %}
+            {% endif %}
+        {% endfor %}
+
+
+       {% include 'ndr_core_api/elements/pagination.html' %}
+    {% else %}
+        <h4 class="mt-4"></h4>
+        {% include 'ndr_core_api/elements/messages.html' %}
+        {% crispy form %}
+    {% endif %}
+
+{% endblock %}

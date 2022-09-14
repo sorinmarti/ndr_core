@@ -1,7 +1,0 @@
-<nav class="nav d-flex justify-content-between">
-    {% for nav_item in navigation %}
-        <a class="p-2 {% if request.resolver_match.url_name == nav_item.name %}active{% else %}text-muted{% endif %}" href="{{ nav_item.url }}">
-            <i class="{{ nav_item.nav_icon }}"></i>&nbsp;{{ nav_item.label }}
-        </a>
-    {% endfor %}
-</nav>

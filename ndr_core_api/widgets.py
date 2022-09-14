@@ -40,10 +40,15 @@ class CustomSelect(forms.Select):
 
     def render(self, name, value, attrs=None, renderer=None):
         field_name = self.attrs["list_name"]
+        if "placeholder" not in self.attrs:
+            placeholder = f"Select {field_name}"
+        else:
+            placeholder = self.attrs["placeholder"]
+
         html = f'<select class="js-example-basic-multiple js-states form-control" name="{field_name}[]" multiple="multiple" id="{field_name}_select"></select>'
         inline_code = "  $(document).ready(function() {\n"\
             f"    $('#{field_name}_select').select2({{\n"\
-            f"      placeholder: 'Select {field_name}',\n"\
+            f"      placeholder: '{placeholder}',\n" \
             "      ajax: {\n"\
             f"        url: '{reverse('ndr_core_api:list_autocomplete', kwargs={'list_name': field_name})}',\n"\
             "        dataType: 'json',\n"\

@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% load ndr_core_ui_elements %}
+<!-- Implement this block to show your page content -->
+
+{% block content %}
+    <!-- Jumbotron -->
+    {% include 'main/dpcl_jumbotron.html' %}
+
+    <h4 class="pb-3 mb-4 border-bottom">DPCL Curated Studies
+            <div class="btn-group float-right">
+                {% if prev_include %}
+                    <a href="{% url 'main:study' prev_include.id %}" type="button" class="btn btn-sm btn-outline-secondary">previous curated study</a>
+                {% else %}
+                    <a href="#" type="button" class="btn btn-sm btn-outline-secondary disabled">previous curated study</a>
+                {% endif %}
+
+                {% if next_include %}
+                    <a href="{% url 'main:study' next_include.id %}" type="button" class="btn btn-sm btn-outline-secondary">next curated study</a>
+                    {% else %}
+                    <a href="#" type="button" class="btn btn-sm btn-outline-secondary disabled">next curated study</a>
+                {% endif %}
+            </div>
+    </h4>
+
+    {% with "main/studies/"|add:current_include.id|add:".html" as include %}
+        {% include include %}
+    {% endwith %}
+
+{% endblock %}
