@@ -40,40 +40,7 @@ class DiscoverView(_NdrCoreSearchView):
         else:
             tag_to_load = "all"
 
-
         return render(request, self.template_name, {})
-
-    def get_list(self):
-        """"""
-        return {}
-
-
-class LocalDiscoverView(_NdrCoreSearchView):
-    """ View to discover different datasets within a collection. They can be filtered by tags """
-
-    record_file = "records.tsv"
-
-    def get(self, request, *args, **kwargs):
-        if request.GET.get("tag", None) is not None:
-            tag_to_load = request.GET.get("tag", None)
-        else:
-            tag_to_load = "all"
-
-        try:
-            app_name = get_api_config()["app_name"]
-            file_handle = open(os.path.join(settings.STATIC_ROOT, f'{app_name}', self.record_file))
-            csv_reader = csv.DictReader(file_handle, delimiter='\t')
-
-            choices = list()
-            for row in csv_reader:
-                #if row['tag']
-                choices.append(row)
-
-            choices = sorted(choices, key=lambda tup: tup['Title'])
-            return render(request, self.template_name, {'results': choices})
-        except IOError:
-            print("source file not found")
-            return render(request, self.template_name, {'results': []})
 
     def get_list(self):
         """"""
@@ -123,7 +90,6 @@ class AdvancedSearchView(_NdrCoreSearchView):
                         query_type = self.api_config["repositories"][repository]["query_type"]
 
                     query = create_advanced_search_string(repository, self.endpoint, query_type, request.GET)
-                    print("QUERY", query)
                     result = get_result(repository, query)
                     if result is None:
                         messages.error(request, "The query could not be sent: unknown error")
@@ -189,9 +155,9 @@ class FilterView(_NdrCoreSearchView):
                 app_name = get_api_config()["app_name"]
                 file_handle = open(os.path.join(settings.STATIC_ROOT, f'{app_name}', self.record_file), encoding='utf-8')
                 csv_reader = csv.DictReader(file_handle, delimiter=',', quotechar='"')
-                selected_tags = request.GET.getlist("tags[]")
+                selected_tags = request.GET.getlist("tags[]", None)
                 all_tags = get_dict_list("tags")
-                print(all_tags)
+
                 for row in csv_reader:
                     tag_search = row['tags']
                     row['tags'] = [{'tag': row["tags"], 'label': all_tags[row["tags"]]}, ]

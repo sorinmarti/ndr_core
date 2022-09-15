@@ -4,25 +4,16 @@
 
 {% block content %}
     <!-- Jumbotron -->
-    {% include 'main/dpcl_jumbotron.html' %}
+    {% banner 'Divisive Power of Citizenship and Loyality - the French case' %}
+        <p class="lead my-3">
+            Comparing Heterogeneous Archival Sources. DPCL has gathered archival sources internationally relating to
+            European citizens resident in Indochina during World War II, including material recently released by the
+            French Government, and analyzed them using novel digital methods.
+        </p>
+        <p class="lead mb-0"><a href="#" class="text-white font-italic">Continue reading...</a></p>
+    {% end_banner %}
 
-    <h4 class="pb-3 mb-4 border-bottom">DPCL Curated Studies
-            <div class="btn-group float-right">
-                {% if prev_include %}
-                    <a href="{% url 'main:study' prev_include.id %}" type="button" class="btn btn-sm btn-outline-secondary">previous curated study</a>
-                {% else %}
-                    <a href="#" type="button" class="btn btn-sm btn-outline-secondary disabled">previous curated study</a>
-                {% endif %}
-
-                {% if next_include %}
-                    <a href="{% url 'main:study' next_include.id %}" type="button" class="btn btn-sm btn-outline-secondary">next curated study</a>
-                    {% else %}
-                    <a href="#" type="button" class="btn btn-sm btn-outline-secondary disabled">next curated study</a>
-                {% endif %}
-            </div>
-    </h4>
-
-    {% with "main/studies/"|add:current_include.id|add:".html" as include %}
+    {% with "main/studies/"|add:current_include as include %}
         {% include include %}
     {% endwith %}
 
