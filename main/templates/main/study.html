@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% load ndr_core_ui_elements %}
+<!-- Implement this block to show your page content -->
+
+{% block content %}
+    <!-- Jumbotron -->
+    {% banner 'Divisive Power of Citizenship and Loyality - the French case' %}
+        <p class="lead my-3">
+            Comparing Heterogeneous Archival Sources. DPCL has gathered archival sources internationally relating to
+            European citizens resident in Indochina during World War II, including material recently released by the
+            French Government, and analyzed them using novel digital methods.
+        </p>
+        <p class="lead mb-0"><a href="#" class="text-white font-italic">Continue reading...</a></p>
+    {% end_banner %}
+
+    {% with "main/studies/"|add:current_include as include %}
+        {% include include %}
+    {% endwith %}
+
+{% endblock %}

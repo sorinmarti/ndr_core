@@ -26,6 +26,11 @@ class MyAdvancedSearchView(AdvancedSearchView):
             hit["full_name"] += ", " + hit["name"]["givennames"]
 
 
+def show_include(request, study):
+    return render(request, 'main/study.html', {'current_include': study+".html",
+                                                'prev_include': None,
+                                                'next_include': None})
+
 class IncludeView(View):
     template_name = 'main/study.html'
     include_name = 'study'
