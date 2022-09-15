@@ -1,10 +1,11 @@
 /* stylelint-disable selector-list-comma-newline-after */
 /* kk */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
 
 body {
     font-family: 'Open Sans', sans-serif;
+  
 }
 
 body p {
@@ -113,6 +114,18 @@ a.stretched-link{
     color: #000000 !important;
     font-size: 1.2rem;
 }
+
+a.link-secondary{
+    color:#8e8f8e!important;
+    font-size: 1rem;
+}
+
+a.link-secondary:hover{
+    color: #000000 !important;
+    font-size: 1rem;
+}
+
+
 
 .blog-title{padding-bottom: 0.5rem;}
 a.red{
