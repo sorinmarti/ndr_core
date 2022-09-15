@@ -4,7 +4,15 @@
     <footer class="blog-footer">
         <div class="container">
             <div class="row">
-                <div class="col-2"><a class="blog-header-logo text-dark" href="{% url 'main:index' %}">DPCL</a></div>
+            
+                <div class="col-2">
+                
+                {% block logo %}
+    <a class="blog-header-logo" href="/">
+        <img src="{% static 'main/images/logo.png' %}" class="pb-3" style="height: 80px;">
+    </a>
+{% endblock %}
+                </div>
                 {% print_navigation_bottom %}
 
           <div>Connect
@@ -31,10 +39,10 @@
 <footer class="blog-footer-white">
     <div class="container">
         <div class="row mb-6">
-            <div class="col"> <a href=""><img src="{% static 'main/images/footer/snf.png' %}" class="img-fluid"></a></div>
-            <div class="col"> <a href=""><img src="{% static 'main/images/footer/dflogo.png' %}" class="img-fluid"></a></div>
-            <div class="col"> <a href=""><img src="{% static 'main/images/footer/basellogo.png' %}" class="img-fluid"></a></div>
-            <div class="col"> <a href=""><img src="{% static 'main/images/footer/fag.png' %}"  class="img-fluid"></a></div>
+            <div class="col"> <a href="https://www.snf.ch"><img src="{% static 'main/images/footer/snf.png' %}" class="img-fluid"></a></div>
+            <div class="col"> <a href="https://www.data-futures.org/"><img src="{% static 'main/images/footer/dflogo.png' %}" class="img-fluid"></a></div>
+            <div class="col"> <a href="https://www.unibas.ch"><img src="{% static 'main/images/footer/basellogo.png' %}" class="img-fluid"></a></div>
+            <div class="col"> <a href="https://fag-basel.ch/"><img src="{% static 'main/images/footer/fag.png' %}"  class="img-fluid"></a></div>
         </div>
     </div>
 </footer>
