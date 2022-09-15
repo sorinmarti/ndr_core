@@ -5,6 +5,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+  
 }
 
 body p {
@@ -113,6 +114,18 @@ a.stretched-link{
     color: #000000 !important;
     font-size: 1.2rem;
 }
+
+a.link-secondary{
+    color:#8e8f8e!important;
+    font-size: 1rem;
+}
+
+a.link-secondary:hover{
+    color: #000000 !important;
+    font-size: 1rem;
+}
+
+
 
 .blog-title{padding-bottom: 0.5rem;}
 a.red{
