@@ -2,8 +2,110 @@
 
 <!-- PUT HTML FOR A CURATED STUDY PAGE -->
 
-{% titled_text 'Curated Study 5' %}
-    <p>
-        Lorem Ipsum
-    </p>
-{% end_titled_text %}
+  <div class="container-header m-0">
+  <div class="row">
+    <div class="col-8">
+{% titled_text 'Curated Study 5' %}{% end_titled_text %}
+
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+   {% include 'main/navcurated.html' %}
+    </div>
+  </div>
+  
+       <div class="row mb-0"><!-- /.row -->
+
+          <div class="col-md-8">
+        
+
+             <h4 class="mb-4">Reports Of Recovered Personnel Sept 1945 French</h4>
+
+   <p >
+   This dataset contains information about 4,784 internees released by U.S. personnel in September 1945 from internment camps in Hanoi and Haiphong. The Japanese Army interned these predominantly French military personnel after the Japanese Coup d'État on the 9th of March, 1945. Original documents now held at the National Archives and Records Administration were compiled in September 1945.
+
+
+</p>     
+<hr> <p ><h5 class="mb-4">Multiple datasets</h5> 
+   <p >
+Multiple datasets generated from the source material, including transcriptions of person entries (names, dates of birth and death where available, profession and often location, remarks and operating unit) and structured person instance data derived from them are provided. Key historic person instance information (appearances in documents), serialized as JSON according to a formal schema is available, together with the JSON Schema itself. This is intended for use by external applications, and can also be searched interactively using a DPCL presentation website (see below) which explains the datasets further. In contrast to transcription data, which represents the printed and hand-written source material, and is often organized inconsistently, the historic person instance data provided here enables reliable searching across multiple archival sources. The historic person instance JSON is lightweight to enable scalability across large numbers of sub-collections/archives: it does not contain all of the information sometimes transcribed, such as remarks and military operating unit. However it does provide IIIF canvas IDs, connecting the person instance to the page in the source document where it originally occurred.
+ </p>                 <hr><h5 class="mb-4">Comparative Instances</h5>   
+                <p>
+Where annotations can be generated from transcriptions they are provided as Web Annotation Data Model (WADM) annotation collections serialized as JSON, which are linked to source documents via PIDs. The annotation data can be used independently with the IIIF service provided here, to connect person instances interactively to their occurrence in the source documents. Provided principally for analysis preservation and verification purposes, the transcription data is less suitable for automated searching than the historic person instance JSON (above).           
+   </p>         </div>
+
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="/static/main/images/curated/study5.png" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">4,784 internees released by U.S. personnel in September 1945</p>
+                <div class="d-flex justify-content-between align-items-center">
+
+                  <p class="text-thin">The dataset contains information about 4,784 internees released by U.S. personnel in September 1945 from internment camps in Hanoi and Haiphong</p>
+                </div>
+                 <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://dpc.ei-basel.hasdai.org/records/9kx4q-v8c15">  repository</a>
+              </div>
+            </div>
+          </div>
+
+
+
+             </div><!-- /.row -->
+
+             <div class="album py-2 bg-light ">
+                <div class="container-card">
+
+                  <div class="row">
+                    <div class="col-md-6 ">
+                      <div class="card mb-4 box-shadow">
+                         <img class="card-img-bottom" src="/static/main/images/curated/study5a.png" alt="Card image cap">
+
+                         <div class="card-body">
+
+                      <h5 class="mb-3">
+                        <a class="text-dark" href="discover.html">4,784 internees released by U.S. personnel in September 1945</a>
+                      </h5>
+                          <p class="text-thin">The Japanese Army interned these predominantly French military personnel after the Japanese Coup d'État on the 9th of March, 1945.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+   <a class="button btn btn-sm btn-outline-secondary mt-2" href="#">  data set</a>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card mb-4 box-shadow">
+                         <img class="card-img-bottom" src="/static/main/images/curated/study5b.png" alt="Card image cap">
+                       <div class="card-body">
+
+                      <h5 class="mb-3">
+                        <a class="text-dark " href="curated_main.html">Sample document </a>
+                      </h5>
+                          <p class="text-thin">Original documents now held at the National Archives and Records Administration were compiled in September 1945.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+   <a class="button btn btn-sm btn-outline-secondary mt-2" href="#">  data set</a>
+
+                          </div>
+                        </div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </div><!-- /.row -->
+
+
+    
+    
+</div><!-- /.row -->
+   {% include 'main/navcurated.html' %}
+</div>
+
+</div><!-- /.row -->
+
+
+
+
+
