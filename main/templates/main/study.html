@@ -13,8 +13,13 @@
         <p class="lead mb-0"><a href="#" class="text-white font-italic">Continue reading...</a></p>
     {% end_banner %}
 
-    {% with "main/studies/"|add:current_include as include %}
+
+
+
+    {% with "main/studies/"|add:current|add:'.html' as include %}
         {% include include %}
     {% endwith %}
+
+
 
 {% endblock %}

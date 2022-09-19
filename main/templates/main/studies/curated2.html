@@ -1,162 +1,172 @@
-{% load ndr_core_ui_elements %}
+{% extends 'main/base_study.html' %}
 
-<!-- PUT HTML FOR A CURATED STUDY PAGE -->
+{% block study_title %}
+    Curated Study 2
+{% endblock %}
 
-  <div class="container-header m-0">
-  <div class="row">
-    <div class="col-8">
-{% titled_text 'Curated Study 2' %}{% end_titled_text %}
+{% block study_content %}
+    <div class="row mb-0"><!-- /.row -->
+        <div class="col-md-8">
+            <h4 class="mb-4">Légion française des combattants et des volontaires de la Révolution nationale Cochinchine</h4>
+            <p>
+                This record relates to approximately 3,000 members of the Union of the so-called "Légion française des
+                combattants et des volontaires de la Révolution nationale" in Cochinchine, South Vietnam. Original
+                documents now held at the Archives Nationales d'Outre Mer—Mairie d'Aix-en-Provence, were compiled on
+                the 8th of December 1942, and the list of persons is marked as complete. Admissions to the Légion after
+                that date are not included. The Légion, which was established by Philippe Pétain in August 1940,
+                combined the existing Veteran's organization. By November 1941, admission to the Légion was opened
+                for non-combatants as well. It served as a means to propagate Vichy Ideologies thoughout the empire.
+            </p>
+            <hr>
+            <h5 class="mb-4">Multiple datasets</h5>
+            <p>
+                In the Divisive Power of Citizenship and Loyalty (DPCL) project, this sub-collection has provided one
+                of the most useful datasets for helping to identify and trace members of the population in French
+                Indochina during World War 2.
+            </p>
+            <hr>
+            <h5 class="mb-4">Comparative Instances</h5>
+            <p>
+               Multiple datasets generated from the source material, including transcriptions of person entries (names,
+                dates of birth and death where available, profession and often location, remarks and operating unit)
+                and structured person instance data derived from them are provided. Key historic person instance
+                information (appearances in documents), serialized as JSON according to a formal schema is available,
+                together with the JSON Schema itself. This is intended for use by external applications, and can also
+                be searched interactively using a DPCL presentation website (see below) which explains the datasets
+                further. In contrast to transcription data, which represents the printed and hand-written source
+                material, and is often organized inconsistently, the historic person instance data provided here enables
+                reliable searching across multiple archival sources. The historic person instance JSON is lightweight
+                to enable scalability across large numbers of sub-collections/archives: it does not contain all of the
+                information sometimes transcribed, such as remarks and military operating unit. However it does provide
+                IIIF canvas IDs, connecting the person instance to the page in the source document where it originally
+                occurred.
+            </p>
+        </div>
 
-    </div>
-    <div class="col-4 d-flex justify-content-end">
-   {% include 'main/navcurated.html' %}
-    </div>
-  </div>
-  
-        <div class="row  mb-0"><!-- /.row -->
 
-          <div class="col-md-8">
-       
-
-             <h4 class="mb-4">Légion française des combattants et des volontaires de la Révolution nationale Cochinchine</h4>
-
-   <p >
-This record relates to approximately 3,000 members of the Union of the so-called "Légion française des combattants et des volontaires de la Révolution nationale" in Cochinchine, South Vietnam. Original documents now held at the Archives Nationales d'Outre Mer—Mairie d'Aix-en-Provence, were compiled on the 8th of December 1942, and the list of persons is marked as complete. Admissions to the Légion after that date are not included.
-The Légion, which was established by Philippe Pétain in August 1940, combined the existing Veteran's organization. By November 1941, admission to the Légion was opened for non-combatants as well. It served as a means to propagate Vichy Ideologies thoughout the empire.
-</p>     
-<hr> <p ><h5 class="mb-4">Multiple datasets</h5> 
-In the Divisive Power of Citizenship and Loyalty (DPCL) project, this sub-collection has provided one of the most useful datasets for helping to identify and trace members of the population in French Indochina during World War 2.</p>  
-               <hr><h5 class="mb-4">Comparative Instances</h5>   
-                <p>
-               Multiple datasets generated from the source material, including transcriptions of person entries (names, dates of birth and death where available, profession and often location, remarks and operating unit) and structured person instance data derived from them are provided. Key historic person instance information (appearances in documents), serialized as JSON according to a formal schema is available, together with the JSON Schema itself. This is intended for use by external applications, and can also be searched interactively using a DPCL presentation website (see below) which explains the datasets further. In contrast to transcription data, which represents the printed and hand-written source material, and is often organized inconsistently, the historic person instance data provided here enables reliable searching across multiple archival sources. The historic person instance JSON is lightweight to enable scalability across large numbers of sub-collections/archives: it does not contain all of the information sometimes transcribed, such as remarks and military operating unit. However it does provide IIIF canvas IDs, connecting the person instance to the page in the source document where it originally occurred.</p>  
-           
-          </div>
-
-
-          <div class="col-md-4">  
-    
+        <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <img class="card-img-top" src="/static/main/images/curated/study02.png" alt="Card image cap">
-              <div class="card-body">
-                <p class="card-text">8th of December 1942</p>
-                <div class="d-flex justify-content-between align-items-center">
-
-                  <p class="text-thin">Liste complète des Légionnaires de l'Union Cochinchine. Letter sent by the Procureur Géneral de Saigon</p>
-                </div>
-                 <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://dpc.ei-basel.hasdai.org/records/rs0tg-phg66">  repository</a>
-              </div>
-            </div>
-          </div>
-
-
-
-             </div><!-- /.row -->
-
-             <div class="album py-2 bg-light ">
-                <div class="container-card">
-
-                  <div class="row">
-                    <div class="col-md-6 ">
-                      <div class="card mb-4 box-shadow">
-                         <img class="card-img-bottom" src="/static/main/images/curated/card_study2.png" alt="Card image cap">
-
-                         <div class="card-body">
-
-                      <h5 class="mb-3">
-                        <a class="text-dark" href="discover.html">François Romerioo</a>
-                      </h5>
-                          <p class="text-thin">François Romerio (né le 12/08/1908 à Paris et mort le 10/09/1993 à Paris) effectue une carrière de magistrat.</p>
-                          <div class="d-flex justify-content-between align-items-center">
-   <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://www.divisive-power.org/search/?name=Romerio&first_name=&organization=&profession=&location=&year=&repo_to_search=dpc&search=Search">  data set</a>
-                          </div>
-                        </div>
-
-                      </div>
+                <img class="card-img-top" src="/static/main/images/curated/study02.png" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text">8th of December 1942</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="text-thin">
+                            Liste complète des Légionnaires de l'Union Cochinchine.
+                            Letter sent by the Procureur Géneral de Saigon
+                        </p>
                     </div>
-                    <div class="col-md-6">
-                      <div class="card mb-4 box-shadow">
-                         <img class="card-img-bottom" src="/static/main/images/curated/card_study2a.png" alt="Card image cap">
-                       <div class="card-body">
-
-                      <h5 class="mb-3">
-                        <a class="text-dark " href="curated_main.html">Annotation views </a>
-                      </h5>
-                          <p class="text-thin"> Liste complète des Légionnaires de l'Union Cochinchine sent by the Procureur Géneral de Saigon</p>
-                          <div class="d-flex justify-content-between align-items-center">
-   <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://dpc.ei-basel.hasdai.org/records/rs0tg-phg66">  data set</a>
-
-                          </div>
-                        </div>
-
-</div>
-</div>
-</div>
-</div>
-
-
+                    <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://dpc.ei-basel.hasdai.org/records/rs0tg-phg66">  repository</a>
+                </div>
+            </div>
+        </div>
     </div><!-- /.row -->
 
-  <div class="row"><!-- /.row -->
-    <div class="col-md-12">
-     <h5 class="mb-4" >François Romerio</h5>
-     <hr>
-    <p>  
+    <div class="album py-2 bg-light ">
+        <div class="container-card">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-bottom" src="/static/main/images/curated/card_study2.png" alt="Card image cap">
+                         <div class="card-body">
+                             <h5 class="mb-3">
+                                <a class="text-dark" href="discover.html">François Romerioo</a>
+                            </h5>
+                            <p class="text-thin">
+                                François Romerio (né le 12/08/1908 à Paris et mort le 10/09/1993 à Paris)
+                                effectue une carrière de magistrat.
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://www.divisive-power.org/search/?name=Romerio&first_name=&organization=&profession=&location=&year=&repo_to_search=dpc&search=Search">  data set</a>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-bottom" src="/static/main/images/curated/card_study2a.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="mb-3">
+                                <a class="text-dark " href="curated_main.html">Annotation views </a>
+                            </h5>
+                            <p class="text-thin">
+                                Liste complète des Légionnaires de l'Union Cochinchine sent by the Procureur Géneral
+                                de Saigon
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://dpc.ei-basel.hasdai.org/records/rs0tg-phg66">  data set</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.row -->
 
-François Romerio (né le 12/08/1908 à Paris et mort le 10/09/1993 à Paris) effectue une carrière de magistrat.
+    <div class="row"><!-- /.row -->
+        <div class="col-md-12">
+            <h5 class="mb-4" >François Romerio</h5>
+            <hr>
+            <p>
+                François Romerio (né le 12/08/1908 à Paris et mort le 10/09/1993 à Paris) effectue une carrière de
+                magistrat. Licencié en droit et breveté de l’École nationale de la France d’outre-mer dans la section
+                magistrature (1931), il part en Cochinchine comme magistrat (1935-1946). Rallié à la cause de la
+                résistance (1940), il est arrêté, torturé et emprisonné par la gendarmerie japonaise jusqu’à la
+                libération de Saïgon. Il siège à la Cour de justice de l’Indochine avant d’exercer les fonctions
+                de conseiller aux cours d’appel de Douai puis d’Aix-en-Provence.
 
-Licencié en droit et breveté de l’École nationale de la France d’outre-mer dans la section magistrature (1931), il part en Cochinchine comme magistrat (1935-1946). Rallié à la cause de la résistance (1940), il est arrêté, torturé et emprisonné par la gendarmerie japonaise jusqu’à la libération de Saïgon. Il siège à la Cour de justice de l’Indochine avant d’exercer les fonctions de conseiller aux cours d’appel de Douai puis d’Aix-en-Provence.
+                Il occupe successivement les postes de président de la chambre à la cour d’appel d’Angers, conseiller à
+                la Cour de cassation, président de chambre à la cour d’appel de Paris et premier président de la cour
+                de sûreté de l’État. Il assume en outre la responsabilité de maire de l’île d’Arz, dans le Morbihan.
 
-Il occupe successivement les postes de président de la chambre à la cour d’appel d’Angers, conseiller à la Cour de cassation, président de chambre à la cour d’appel de Paris et premier président de la cour de sûreté de l’État. Il assume en outre la responsabilité de maire de l’île d’Arz, dans le Morbihan.
+                Enfin, François Romerio est élu membre correspondant de la 3e section de l’Académie des sciences
+                d’outre-mer le 23/04/1976.
+            </p>
+            <p>
+                Archival material from the Mytho internment camp was compiled by the Swiss Consul in Saigon, Hans
+                Hirsbrunner as “Les ressortissants américains confinés à Mytho” and was sent to the American delegation
+                in early October 1943. This material survives in the Swiss Federal Archive at Bern, and has been
+                digitized by DPCL. We can therefore test the utility of the digital methodology proposed using persons
+                appearing in Hirsbrunner’s list of internees by comparing it using instances of persons appearing in
+                other archival sources.
+            </p>
+            <hr>
+            <h5 class="mb-4" >Title </h5>
+            <p>
+                DPCL’s person instance data confirms that Corvissiano was present at Mytho, together
+                with his wife and children Leo and Gabrielle. Further research in French archives offered
+                more insights into this individual and sheds light on the complicated relationship between French,
+                Japanese and Allied citizens in Indochina. Gabriel Corvissiano was arrested, like most of his
+                compatriots, soon after Japan entered World War II. However, he was treated differently
+                because of his commercial activities: specifically, he was a partner of the French citizen Charles
+                Edouard Anthony in the operation of a phosphor mining concession. This was an economic
+                sector of strategic interest to the Japanese, but since the French authorities sought to curb
+                foreign influence in the economic sphere of the colony, the Japanese were only permitted to
+                operate in cooperation with a French citizen (6). Japanese intelligence recognized the opportunity
+                presented by Anthony’s circumstances, leading to the release of Corvissiano from detention on
+                commercial grounds. However, the threat of re-internment remained: Corvissiano was
+                reminded by the police of the ‘benevolence’ of the Japanese officials, intending to persuade
+                him to relinquish his commercial interest and make way for a Japanese partner in the business.
+                He conceded his share of the concession in August 1942 and he and his family were soon after
+                repatriated to Lourenço Marques (7).
+            </p>
+            <hr>
+            <p>
+                Charles Anthony can also be traced using the Asia Directories and Chronicles listings, which
+                have been digitized and analyzed in another sub-project of The Divisive Power of Citizenship.
+                We find 8 appearances of an Anthony, C. E. in the Directories, in Haiphong between 1926 and
+                1939. The person instances, which (as well as appearances of others by the same surname) can
+                be viewed interactively at https://asia-directories.org, list the occupation of this Anthony
+                consistently as Commercial Manager or Commercial Director and, additionally, return either
+                Société des Verrieries des d'Extreme-Orient or Société des d'Extreme-Orient or Société
+                Francaise des Verreries d'Indo-Chine as employer. These results are inadequate alone to
+                establish an unequivocal Charles Anthony person entity, however they are already strongly
+                supportive of the residence of a single individual using this name in Haiphong between 1926
+                and 1941, prior to his association with Corvissiano.
+            </p>
+            <hr>
+        </div>
+    </div><!-- /.row -->
 
-Enfin, François Romerio est élu membre correspondant de la 3e section de l’Académie des sciences d’outre-mer le 23/04/1976. 
- </p>
-     <p>Archival material from the Mytho internment camp was compiled by the Swiss Consul in Saigon, Hans Hirsbrunner as “Les ressortissants américains confinés à Mytho” and was sent to the American delegation in early October 1943. This material survives in the Swiss Federal Archive at Bern, and has been digitized by DPCL. We can therefore test the utility of the digital methodology proposed using persons appearing in Hirsbrunner’s list of internees by comparing it using instances of persons appearing in other archival sources.</p>
-     <hr>
-     <h5 class="mb-4" >Title </h5>
-  <p>   DPCL’s person instance data confirms that Corvissiano was present at Mytho, together
-with his wife and children Leo and Gabrielle. Further research in French archives offered
-more insights into this individual and sheds light on the complicated relationship between French,
-Japanese and Allied citizens in Indochina. Gabriel Corvissiano was arrested, like most of his
-compatriots, soon after Japan entered World War II. However, he was treated differently
-because of his commercial activities: specifically, he was a partner of the French citizen Charles
-Edouard Anthony in the operation of a phosphor mining concession. This was an economic
-sector of strategic interest to the Japanese, but since the French authorities sought to curb
-foreign influence in the economic sphere of the colony, the Japanese were only permitted to
-operate in cooperation with a French citizen (6). Japanese intelligence recognized the opportunity
-presented by Anthony’s circumstances, leading to the release of Corvissiano from detention on
-commercial grounds. However, the threat of re-internment remained: Corvissiano was
-reminded by the police of the ‘benevolence’ of the Japanese officials, intending to persuade
-him to relinquish his commercial interest and make way for a Japanese partner in the business.
-He conceded his share of the concession in August 1942 and he and his family were soon after
-repatriated to Lourenço Marques (7).</p>
-     
-     <hr>  <p>
-     Charles Anthony can also be traced using the Asia Directories and Chronicles listings, which
-have been digitized and analyzed in another sub-project of The Divisive Power of Citizenship.
-We find 8 appearances of an Anthony, C. E. in the Directories, in Haiphong between 1926 and
-1939. The person instances, which (as well as appearances of others by the same surname) can
-be viewed interactively at https://asia-directories.org, list the occupation of this Anthony
-consistently as Commercial Manager or Commercial Director and, additionally, return either
-Société des Verrieries des d'Extreme-Orient or Société des d'Extreme-Orient or Société
-Francaise des Verreries d'Indo-Chine as employer. These results are inadequate alone to
-establish an unequivocal Charles Anthony person entity, however they are already strongly
-supportive of the residence of a single individual using this name in Haiphong between 1926
-and 1941, prior to his association with Corvissiano.</p>
-
-     
-     <hr>
-
-
-    </div>
-    
-    
-</div><!-- /.row -->
-   {% include 'main/navcurated.html' %}
-</div>
-
-</div><!-- /.row -->
-
-
-
+{% endblock %}
 
 

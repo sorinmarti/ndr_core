@@ -1,0 +1,31 @@
+<div class="row m-0 p-0">
+    <div class="col m-0 p-0">
+        <h4 class="">{% block study_title %}Undefined Title{% endblock study_title %}
+            <nav class="sub-nav mb-4 float-right">
+                {% if previous %}
+                    <a class="btn btn-sm btn-outline-dark" href="{% url 'main:study' previous %}">previous curated study</a>
+                {% endif %}
+                {% if next %}
+                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'main:study' next %}">next curated study</a>
+                {% endif %}
+            </nav>
+        </h4>
+    </div>
+</div>
+
+{% block study_content %}
+    Undefined content
+{% endblock study_content %}
+
+<div class="row">
+    <div class="col">
+        <nav class="sub-nav mb-4 float-right">
+            {% if previous %}
+                <a class="btn btn-sm btn-outline-dark" href="{% url 'main:study' previous %}">previous curated study</a>
+            {% endif %}
+            {% if next %}
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'main:study' next %}">next curated study</a>
+            {% endif %}
+        </nav>
+    </div>
+</div>

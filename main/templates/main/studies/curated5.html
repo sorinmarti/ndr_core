@@ -1,19 +1,13 @@
-{% load ndr_core_ui_elements %}
+{% extends 'main/base_study.html' %}
 
-<!-- PUT HTML FOR A CURATED STUDY PAGE -->
+{% block study_title %}
+    Curated Study 5
+{% endblock %}
 
-  <div class="container-header m-0">
-  <div class="row">
-    <div class="col-8">
-{% titled_text 'Curated Study 5' %}{% end_titled_text %}
 
-    </div>
-    <div class="col-4 d-flex justify-content-end">
-   {% include 'main/navcurated.html' %}
-    </div>
-  </div>
-  
-       <div class="row mb-0"><!-- /.row -->
+{% block study_content %}
+
+    <div class="row mb-0"><!-- /.row -->
 
           <div class="col-md-8">
         
@@ -52,7 +46,7 @@ Where annotations can be generated from transcriptions they are provided as Web 
 
              </div><!-- /.row -->
 
-             <div class="album py-2 bg-light ">
+    <div class="album py-2 bg-light ">
                 <div class="container-card">
 
                   <div class="row">
@@ -96,16 +90,6 @@ Where annotations can be generated from transcriptions they are provided as Web 
 
     </div><!-- /.row -->
 
-
-    
-    
-</div><!-- /.row -->
-   {% include 'main/navcurated.html' %}
-</div>
-
-</div><!-- /.row -->
-
-
-
+{% endblock %}
 
 

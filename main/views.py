@@ -27,9 +27,25 @@ class MyAdvancedSearchView(AdvancedSearchView):
 
 
 def show_include(request, study):
-    return render(request, 'main/study.html', {'current_include': study+".html",
-                                                'prev_include': None,
-                                                'next_include': None})
+    app_name = get_api_config()["app_name"]
+    print('include')
+
+    previous_study = None
+    next_study = None
+
+    filenames = os.listdir(f'{app_name}/templates/main/studies')
+    filenames.sort()
+    current_index = filenames.index(study+".html")
+
+    if current_index > 0:
+        previous_study = filenames[current_index-1].split(".html")[0]
+
+    if current_index < len(filenames)-1:
+        next_study = filenames[current_index+1].split(".html")[0]
+
+    return render(request, 'main/study.html', {'current': study,
+                                               'previous': previous_study,
+                                               'next': next_study})
 
 class IncludeView(View):
     template_name = 'main/study.html'

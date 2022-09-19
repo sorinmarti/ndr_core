@@ -130,6 +130,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_CREDENTIALS = True
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -166,7 +170,7 @@ NDR_CORE_API_CONFIG = {
 
     "footer_text": "(c) 2022, Institute For European Global Studies",
 
-    "use_dummy_result": True,
+    "use_dummy_result": False,
     "repositories": {
         "dpc": {
             "dummy_result_file": "main/dummy_result_dpc.json",
