@@ -2,8 +2,112 @@
 
 <!-- PUT HTML FOR A CURATED STUDY PAGE -->
 
-{% titled_text 'Curated Study 3' %}
-    <p>
-        Lorem Ipsum
-    </p>
-{% end_titled_text %}
+  <div class="container-header m-0">
+  <div class="row">
+    <div class="col-8">
+{% titled_text 'Curated Study 3' %}{% end_titled_text %}
+
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+   {% include 'main/navcurated.html' %}
+    </div>
+  </div>
+  
+          <div class="row mb-0"><!-- /.row -->
+
+          <div class="col-md-8">
+          
+
+             <h4 class="mb-4">Camp d'internement en Indochine</h4>
+
+   <p >
+This dataset includes information on the internment camps. Not transcript, but within the source material are also further descriptions of the location and regime of the individual sites. Original documents now held at the Archives Nationales d'Outre Mer - Mairie d'Aix-en-Provence, were compiled on the 13th of April 1950.
+</p>     
+<hr><h5 class="mb-4">Multiple datasets</h5> 
+<p> 
+Multiple datasets generated from the source material, including transcriptions of person entries (names, dates of birth and death where available, profession and often location, remarks and operating unit) and structured person instance data derived from them are provided. Key historic person instance information (appearances in documents), serialized as JSON according to a formal schema is available, together with the JSON Schema itself. This is intended for use by external applications, and can also be searched interactively using a DPCL presentation website (see below) which explains the datasets further. In contrast to transcription data, which represents the printed and hand-written source material, and is often organized inconsistently, the historic person instance data provided here enables reliable searching across multiple archival sources. The historic person instance JSON is lightweight to enable scalability across large numbers of sub-collections/archives: it does not contain all of the information sometimes transcribed, such as remarks and military operating unit. However it does provide IIIF canvas IDs, connecting the person instance to the page in the source document where it originally occurred.</p> 
+               <hr><h5 class="mb-4">Web Annotation Data Model (WADM) annotation collections</h5>   
+                <p>
+              Where annotations can be generated from transcriptions they are provided as Web Annotation Data Model (WADM) annotation collections serialized as JSON, which are linked to source documents via PIDs. The annotation data can be used independently with the IIIF service provided here, to connect person instances interactively to their occurrence in the source documents. Provided principally for analysis preservation and verification purposes, the transcription data is less suitable for automated searching than the historic person instance JSON (above).</p>  
+           
+          </div>
+
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="/static/main/images/curated/study3.png" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">Thakkhet (Laos), 22 February 1949</p>
+                <div class="d-flex justify-content-between align-items-center">
+
+                  <p class="text-thin">Letter seeking confirmation of status of the Thakket camp </p>
+                </div>
+                 <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://dpc.ei-basel.hasdai.org/records/kvhes-sf940">  repository</a>
+              </div>
+            </div>
+          </div>
+
+
+
+             </div><!-- /.row -->
+
+             <div class="album py-2 bg-light ">
+                <div class="container-card">
+
+                  <div class="row">
+                    <div class="col-md-6 ">
+                      <div class="card mb-4 box-shadow">
+                         <img class="card-img-bottom" src="/static/main/images/curated/card_study3a.png" alt="Card image cap">
+
+                         <div class="card-body">
+
+                      <h5 class="mb-3">
+                        <a class="text-dark" href="#">Conditions in internement camps</a>
+                      </h5>
+                          <p class="text-thin">Description of circumstances of internment and intentions of Japan regarding foreign interns.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+   <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://www.divisive-power.org/search/?name=Romerio&first_name=&organization=&profession=&location=&year=&repo_to_search=dpc&search=Search">  data set</a>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card mb-4 box-shadow">
+                         <img class="card-img-bottom" src="/static/main/images/curated/card_study3b.png" alt="Card image cap">
+                       <div class="card-body">
+
+                      <h5 class="mb-3">
+                        <a class="text-dark " href="curated_main.html">Details of camps in Indochina </a>
+                      </h5>
+                          <p class="text-thin"> Details about camps in Province de Thua Thien, Southern Province, Phnom-Penh</p>
+                          <div class="d-flex justify-content-between align-items-center">
+   <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://www.divisive-power.org/search/?name=&first_name=&organization=&profession=&location=camp&year=&repo_to_search=dpc&search=Search&page=6">  data set</a>
+
+                          </div>
+                        </div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </div><!-- /.row -->
+
+
+
+
+    </div>
+    
+     {% include 'main/navcurated.html' %}
+</div><!-- /.row -->
+  
+</div>
+
+</div><!-- /.row -->
+
+
+
+
+

@@ -1,9 +1,122 @@
 {% load ndr_core_ui_elements %}
 
 <!-- PUT HTML FOR A CURATED STUDY PAGE -->
+  <div class="container-header m-0">
+  <div class="row">
+    <div class="col-8">
+{% titled_text 'Curated Study 4' %}{% end_titled_text %}
 
-{% titled_text 'Curated Study 4' %}
-    <p>
-        Lorem Ipsum
-    </p>
-{% end_titled_text %}
+    </div>
+    <div class="col-4 d-flex justify-content-end">
+   {% include 'main/navcurated.html' %}
+    </div>
+  </div>
+  
+  
+     <div class="row mb-0"><!-- /.row -->
+
+          <div class="col-md-8">
+   
+
+             <h4 class="mb-4">Commission nationale des déportés et internés politiques ou résistants d'Indochine pour la guerre 1939 – 1945</h4>
+
+   <p >
+This record is part of a group of data resources tracing European persons who were resident or serving in East Asia during the early 20th century and who were displaced as a result of national border changes and conflicts. It is one component of Divisive Power of Citizenship—a project of the Institute for European Global Studies, Basel.
+   </p >
+<hr> <p ><h5 class="mb-4">All French citizens experienced internment or house arrests</h5>    <p >
+After the Second World War, these persons who were interned during the war could apply for the status of déportés ou d'internés politiques or déporté ou d'interné resistant, respectively. In addition, the status would entail entitlement towards France for pension and assistance with medical costs in relation to the internment. However, after the Japanese Coup d'État of 9 March 1945, nearly all French citizens experienced internment or house arrest, often only for a few days. Therefore, it was not feasible to award every person one of these statuses and a Commission was set up to grant the status. The attached datasets contain the members of the commission and the applicants, respectively. Next to the applicants, the advice given by the commission was also transcribed. The dataset describing the commission contains a total of 397 entries, of which many are duplicates. The commission members did usually attend several meetings and were recorded every time. The dataset describing the applicant contains 1260 entries, some of which are duplicates, although the majority are not. No distinction has been made between the applicants or members of the commission concerning the status of déportés ou d'internés politiques or déporté ou d'interné resistant. The different status can be derived from the source location or the information accompanying the individual meeting. The list contains the person's name and the recommendation of the commission. Original documents are now held at the Archives nationales Pierrefitte-sur-Seine, the last document was created on the 27th of June 1968.
+   </p >   <p >
+Multiple datasets generated from the source material, including transcriptions of person entries (names, dates of birth and death where available, profession and often location, remarks and operating unit) and structured person instance data derived from them are provided. 
+Key historic person instance information (appearances in documents), serialized as JSON according to a formal schema is available, together with the JSON Schema itself. This is intended for use by external applications, and can also be searched interactively using a DPCL presentation website (see below) which explains the datasets further.
+</p >             
+ </div><!-- /.row -->
+
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="/static/main/images/curated/study4.png" alt="Card image cap">
+              <div class="card-body">
+                <p class="card-text">397 entries</p>
+                <div class="d-flex justify-content-between align-items-center">
+
+                  <p class="text-thin">Datasets containing the members of the commission and the applicants.</p>
+                </div>
+                 <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://dpc.ei-basel.hasdai.org/records/18zwn-b3510">  repository</a>
+              </div>
+            </div>
+          </div>
+
+
+
+             </div><!-- /.row -->
+
+             <div class="album py-2 bg-light ">
+                <div class="container-card">
+
+                  <div class="row">
+                    <div class="col-md-6 ">
+                      <div class="card mb-4 box-shadow">
+                         <img class="card-img-bottom" src="/static/main/images/curated/card_study4a.png" alt="Card image cap">
+
+                         <div class="card-body">
+
+                      <h5 class="mb-3">
+                        <a class="text-dark" href="discover.html">Members of the commission and the applicants</a>
+                      </h5>
+                          <p class="text-thin">The dataset describing the applicants contains 1260 entries.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+   <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://www.divisive-power.org/search/?name=Romerio&first_name=&organization=&profession=&location=&year=&repo_to_search=dpc&search=Search">  data set</a>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="card mb-4 box-shadow">
+                         <img class="card-img-bottom" src="/static/main/images/curated/card_study4b.png" alt="Card image cap">
+                       <div class="card-body">
+
+                      <h5 class="mb-3">
+                        <a class="text-dark " href="curated_main.html">André Dilhuit </a>
+                      </h5>
+                          <p class="text-thin"> Interné politique</p>
+                          <div class="d-flex justify-content-between align-items-center">
+   <a class="button btn btn-sm btn-outline-secondary mt-2" href="https://www.divisive-power.org/search/?name=Dilhuit&first_name=Gustave&organization=&profession=&location=&year=&repo_to_search=dpc&search=Search">  data set</a>
+
+                          </div>
+                        </div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+    </div><!-- /.row -->
+
+  <div class="row"><!-- /.row -->
+    <div class="col-md-12">
+     <h5 class="mb-4" >JSON Schema</h5>
+     <hr>
+    <p>  
+ In contrast to transcription data, which represents the printed and hand-written source material, and is often organized inconsistently, the historic person instance data provided here enables reliable searching across multiple archival sources. The historic person instance JSON is lightweight to enable scalability across large numbers of sub-collections/archives: it does not contain all of the information sometimes transcribed, such as remarks and military operating unit. However it does provide IIIF canvas IDs, connecting the person instance to the page in the source document where it originally occurred.
+ </p>
+     <p>Archival material from the Mytho internment camp was compiled by the Swiss Consul in Saigon, Hans Hirsbrunner as “Les ressortissants américains confinés à Mytho” and was sent to the American delegation in early October 1943. This material survives in the Swiss Federal Archive at Bern, and has been digitized by DPCL. We can therefore test the utility of the digital methodology proposed using persons appearing in Hirsbrunner’s list of internees by comparing it using instances of persons appearing in other archival sources.</p>
+     <hr>
+     <h5 class="mb-4" >Web Annotation Data Model (WADM)</h5>
+  <p>  Where annotations can be generated from transcriptions they are provided as Web Annotation Data Model (WADM) annotation collections serialized as JSON, which are linked to source documents via PIDs. The annotation data can be used independently with the IIIF service provided here, to connect person instances interactively to their occurrence in the source documents. Provided principally for analysis preservation and verification purposes, the transcription data is less suitable for automated searching than the historic person instance JSON (above).</p>
+     
+     <hr> 
+
+
+    </div>
+    
+    
+</div><!-- /.row -->
+   {% include 'main/navcurated.html' %}
+</div>
+
+</div><!-- /.row -->
+
+
+
+

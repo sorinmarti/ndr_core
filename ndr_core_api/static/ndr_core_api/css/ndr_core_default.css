@@ -1,7 +1,7 @@
 /* stylelint-disable selector-list-comma-newline-after */
 /* kk */
 
-@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -9,11 +9,15 @@ body {
 }
 
 body p {
-    font-weight: 400; /* You specify the number you see next to the fonts to change from light to bold ie you would put 700 etc. etc. */
+
+
+    font-weight:400; /* You specify the number you see next to the fonts to change from light to bold ie you would put 700 etc. etc. */
 }
 
 .select2-container {
     width: 100% !important;
+
+}
 }
 
 .select2-selection {
@@ -175,6 +179,11 @@ padding: .3em .4em;}
 }
 
 /* kk */
+
+.text-thin
+{font-weight:300 !important;
+  colour:#ff3366 !important;
+}
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
