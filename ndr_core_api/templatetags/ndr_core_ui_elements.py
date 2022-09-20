@@ -106,7 +106,7 @@ def show_result_line_haka(result_line):
 @register.tag(name="card")
 def do_card(parser, token):
     try:
-        tag_name, title_text, image, category, continue_link, data_link = token.split_contents()
+        tag_name, title_text, image, title_link, button_text, continue_link = token.split_contents()
     except ValueError:
         raise template.TemplateSyntaxError("Invalid arguments")
 
@@ -115,21 +115,21 @@ def do_card(parser, token):
 
     title_text = FilterExpression(title_text, parser)
     image = FilterExpression(image, parser)
-    category = FilterExpression(category, parser)
+    title_link = FilterExpression(title_link, parser)
+    button_text = FilterExpression(button_text, parser)
     continue_link = FilterExpression(continue_link, parser)
-    data_link = FilterExpression(data_link, parser)
 
-    return CardNode(title_text, image, category, continue_link, data_link, nodelist)
+    return CardNode(title_text, image, title_link, button_text, continue_link, nodelist)
 
 
 class CardNode(template.Node):
 
-    def __init__(self, title_text, image, category, continue_link, data_link, nodelist):
+    def __init__(self, title_text, image, title_link, button_text, continue_link, nodelist):
         self.title_text = title_text
         self.image = image
-        self.category = category
+        self.title_link = title_link
+        self.button_text = button_text
         self.continue_link = continue_link
-        self.data_link = data_link
         self.nodelist = nodelist
 
     def render(self, context):
@@ -137,17 +137,17 @@ class CardNode(template.Node):
 
         title_text = self.title_text.resolve(context) if self.title_text else 'Set a Title'
         image = self.image.resolve(context) if self.image else 'Set an Image'
-        category = self.category.resolve(context) if self.category else 'Set a Category'
+        title_link = self.title_link.resolve(context) if self.title_link else 'Set a Title Link'
+        button_text = self.button_text.resolve(context) if self.button_text else 'Set Button Text'
         continue_link = self.continue_link.resolve(context) if self.continue_link else 'Set a Continue Link'
-        data_link = self.data_link.resolve(context) if self.data_link else 'Set a Data Link'
 
         rendered = render_to_string('ndr_core_api/elements/card.html',
                                     {
                                         'title': title_text,
                                         'image': static(f'{app_name}/images/{image}'),
-                                        'category': category,
+                                        'title_link': title_link,
+                                        'button_text': button_text,
                                         'continue_link': continue_link,
-                                        'data_link': data_link,
                                         'contents': self.nodelist.render(context)
                                     })
         return rendered
