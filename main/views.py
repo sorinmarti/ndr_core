@@ -39,9 +39,13 @@ def show_include(request, study):
 
     if current_index > 0:
         previous_study = filenames[current_index-1].split(".html")[0]
+    else:
+        previous_study = filenames[len(filenames)-1].split(".html")[0]
 
     if current_index < len(filenames)-1:
         next_study = filenames[current_index+1].split(".html")[0]
+    else:
+        next_study = filenames[0].split(".html")[0]
 
     return render(request, 'main/study.html', {'current': study,
                                                'previous': previous_study,
