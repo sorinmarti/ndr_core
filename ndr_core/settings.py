@@ -207,7 +207,7 @@ NDR_CORE_API_CONFIG = {
             "first_name": {
                 "type": "string",
                 "help_text": "Insert First Name Initials or Titles.",
-                "api_param": "namepart"
+                "api_param": "givennames"
             },
             "tags": {
                 "type": "dictionary",
